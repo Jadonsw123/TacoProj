@@ -7,12 +7,52 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/menuText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Menu:"
+        android:textAllCaps="false"
+        android:textSize="100"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="551dp"
+        tools:layout_editor_absoluteY="71dp" />
+
+    <Button
+        android:id="@+id/AddDrinkButton"
+        android:layout_width="406dp"
+        android:layout_height="133dp"
+        android:text="Add Drink"
+        android:textAllCaps="true"
+        android:textSize="60"
+        tools:layout_editor_absoluteX="488dp"
+        tools:layout_editor_absoluteY="628dp" />
+
+    <Button
+        android:id="@+id/Proceed To Cart"
+        android:layout_width="700"
+        android:layout_height="100"
+        android:text="Proceed To Cart"
+        android:textAllCaps="true"
+        android:textSize="60"
+        tools:layout_editor_absoluteX="342dp"
+        tools:layout_editor_absoluteY="840dp" />
+
+    <Button
+        android:id="@+id/AddSideButton"
+        android:layout_width="406dp"
+        android:layout_height="133dp"
+        android:text="Add Side"
+        android:textSize="60"
+        tools:layout_editor_absoluteX="488dp"
+        tools:layout_editor_absoluteY="444dp" />
+
+    <Button
+        android:id="@+id/AddTacoButton"
+        android:layout_width="406dp"
+        android:layout_height="133dp"
+        android:text="Add Taco"
+        android:textSize="60"
+        tools:layout_editor_absoluteX="489dp"
+        tools:layout_editor_absoluteY="254dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
