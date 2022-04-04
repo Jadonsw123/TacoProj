@@ -22,13 +22,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         dbManager = new DatabaseManager(this);
-        Taco testTaco = dbManager.selectTacoById(5);
+        Taco testTaco = dbManager.selectTacoByName("egg");
         if(testTaco == null){
-            testTaco = new Taco(5,"egg",2.55);
-        }
+            testTaco = new Taco(5,"egg",2.55,"true","false");
+            dbManager.insertTaco(testTaco);
+        } /*else{
+            Log.w("test",String.valueOf(testTaco.getId()));
+            dbManager.deleteTacoById(5);
+            testTaco = new Taco(5,"egg",2.55,"true","false");
+            dbManager.insertTaco(testTaco);
+        }*/
 
-        dbManager.insertTaco(testTaco);
-        Log.w("test",testTaco.toString());
+        testTaco = dbManager.selectTacoByName("egg");
+        if(testTaco != null) {
+            Log.w("test", testTaco.toString());
+        } else{
+            Log.w("test", "No TACO");
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
