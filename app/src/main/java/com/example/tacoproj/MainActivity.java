@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         this.getWindowManager().getDefaultDisplay().getSize(size);
         int buttonWidth = size.x/2;
 
-        
+
 
 
     }

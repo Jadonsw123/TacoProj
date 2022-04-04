@@ -12,10 +12,13 @@
         android:layout_height="wrap_content"
         android:text="Menu:"
         android:textAllCaps="false"
-        android:textSize="100"
+        android:textSize="100sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="551dp"
-        tools:layout_editor_absoluteY="71dp" />
+        app:layout_constraintBottom_toTopOf="@+id/AddTacoButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/AddDrinkButton"
@@ -23,36 +26,48 @@
         android:layout_height="133dp"
         android:text="Add Drink"
         android:textAllCaps="true"
-        android:textSize="60"
-        tools:layout_editor_absoluteX="488dp"
-        tools:layout_editor_absoluteY="628dp" />
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf='@+id/ProceedToCart'
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddSideButton" />
 
     <Button
-        android:id="@+id/Proceed To Cart"
-        android:layout_width="700"
-        android:layout_height="100"
+        android:id="@+id/ProceedToCart"
+        android:layout_width="700dp"
+        android:layout_height="100dp"
         android:text="Proceed To Cart"
         android:textAllCaps="true"
-        android:textSize="60"
-        tools:layout_editor_absoluteX="342dp"
-        tools:layout_editor_absoluteY="840dp" />
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddDrinkButton" />
 
     <Button
         android:id="@+id/AddSideButton"
         android:layout_width="406dp"
         android:layout_height="133dp"
         android:text="Add Side"
-        android:textSize="60"
-        tools:layout_editor_absoluteX="488dp"
-        tools:layout_editor_absoluteY="444dp" />
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/AddDrinkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTacoButton" />
 
     <Button
         android:id="@+id/AddTacoButton"
         android:layout_width="406dp"
         android:layout_height="133dp"
         android:text="Add Taco"
-        android:textSize="60"
-        tools:layout_editor_absoluteX="489dp"
-        tools:layout_editor_absoluteY="254dp" />
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/AddSideButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
