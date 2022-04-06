@@ -22,19 +22,4 @@
 
     </com.hanks.passcodeview.PasscodeView>
 
-    <ImageButton
-        android:id="@+id/searchImageButton"
-        android:layout_width="113dp"
-        android:layout_height="110dp"
-        android:alpha="1"
-        android:background="#00FFFFFF"
-        android:contentDescription="back button"
-        android:translationZ="90dp"
-        android:padding="5sp"
-        android:scaleX="4"
-        android:scaleY="4"
-        android:visibility="visible"
-        tools:src="@android:drawable/ic_menu_revert"
-        tools:visibility="visible" />
-
 </RelativeLayout>
