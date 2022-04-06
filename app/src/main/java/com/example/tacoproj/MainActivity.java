@@ -13,6 +13,8 @@ import android.widget.GridLayout;
 import android.widget.Toast;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
+
 import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,16 +24,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         dbManager = new DatabaseManager(this);
+        dbManager.deleteTacoByName("egg");
         Taco testTaco = dbManager.selectTacoByName("egg");
         if(testTaco == null){
             testTaco = new Taco(5,"egg",2.55,"true","false");
             dbManager.insertTaco(testTaco);
-        } /*else{
-            Log.w("test",String.valueOf(testTaco.getId()));
-            dbManager.deleteTacoById(5);
-            testTaco = new Taco(5,"egg",2.55,"true","false");
-            dbManager.insertTaco(testTaco);
-        }*/
+        }
+        Topping testTopping = new Topping(5,"cheese",.50,"true","true","taco");
+        Topping testTopping1 = new Topping(5,"peppers",.50,"true","true","taco");
+        dbManager.deleteToppingByName("cheese");
+        dbManager.deleteToppingByName("peppers");
+        dbManager.insertTopping(testTopping);
+        dbManager.insertTopping(testTopping1);
+        ArrayList<Topping> toppings = dbManager.selectAllTacoToppings();
+        for(Topping t: toppings){
+            Log.w("test", t.toString());
+        }
+
+
 
         testTaco = dbManager.selectTacoByName("egg");
         if(testTaco != null) {
