@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -98,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void ClickDevMenu(View view) {
         Log.w("Deez", "SECRET BUTTON!");
+        Intent adminIntent = new Intent(this, PasscodeActivity.class);
+        this.startActivity(adminIntent);
     }
     //hello
 }

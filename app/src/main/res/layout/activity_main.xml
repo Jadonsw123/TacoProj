@@ -10,7 +10,7 @@
         android:id="@+id/menuText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Menu:"
+        android:text="Tacos Locos"
         android:textAllCaps="false"
         android:textSize="100sp"
         android:textStyle="bold"

@@ -6,18 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".PasscodeActivity">
 
-
-
     <com.hanks.passcodeview.PasscodeView
         android:id="@+id/passcodeView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#222222"
-        app:firstInputTip="Enter a passcode of 4 digits "
+
         app:correctStateColor="#71bb4d"
-        app:wrongStateColor="#ea2b46"
+        app:firstInputTip="Enter a passcode of 4 digits "
         app:normalStateColor="#ffffff"
         app:numberTextColor="#222222"
         app:passcodeLength="4"
-        app:passcodeViewType="set_passcode"/>
+        app:passcodeViewType="set_passcode"
+        app:wrongStateColor="#ea2b46">
+
+    </com.hanks.passcodeview.PasscodeView>
+
+    <ImageButton
+        android:id="@+id/searchImageButton"
+        android:layout_width="113dp"
+        android:layout_height="110dp"
+        android:alpha="1"
+        android:background="#00FFFFFF"
+        android:contentDescription="back button"
+        android:translationZ="90dp"
+        android:padding="5sp"
+        android:scaleX="4"
+        android:scaleY="4"
+        android:visibility="visible"
+        tools:src="@android:drawable/ic_menu_revert"
+        tools:visibility="visible" />
+
 </RelativeLayout>
