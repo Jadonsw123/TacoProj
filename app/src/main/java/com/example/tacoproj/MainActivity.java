@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
             testTaco = new Taco(5,"egg",2.55,"true","false");
             dbManager.insertTaco(testTaco);
         }
-        Topping testTopping = new Topping(5,"cheese",.50,"true","true","taco");
-        Topping testTopping1 = new Topping(5,"peppers",.50,"true","true","taco");
+        Topping testTopping = new Topping(5,"cheese",.50,"true","true");
+        Topping testTopping1 = new Topping(5,"peppers",.50,"true","true");
         dbManager.deleteToppingByName("cheese");
         dbManager.deleteToppingByName("peppers");
         dbManager.insertTopping(testTopping);
         dbManager.insertTopping(testTopping1);
-        ArrayList<Topping> toppings = dbManager.selectAllTacoToppings();
+        ArrayList<Topping> toppings = dbManager.selectAllToppings();
         for(Topping t: toppings){
             Log.w("test", t.toString());
         }

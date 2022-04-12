@@ -1,13 +1,13 @@
 package com.example.tacoproj;
 
-public class Taco {
+public class Drink {
     private String name;
     private Double price;
     private int id;
     private String breakfast;//false means no, true means yes
     private String availability;//false means no, true means yes
 
-    public Taco(int newId, String newName, double newPrice, String newAvailability, String newBreakfast){
+    public Drink(int newId, String newName, double newPrice, String newAvailability, String newBreakfast){
         name = newName;
         price = newPrice;
         id = newId;
@@ -31,26 +31,27 @@ public class Taco {
     }
 
     public void setName(String newName) {
-         name = newName;
+        name = newName;
     }
     public void setBreakfast(String newBreakfast) {
-         breakfast = newBreakfast;
+        breakfast = newBreakfast;
     }
     public void setAvailability(String newAvailability) {
-         availability = newAvailability;
+        availability = newAvailability;
     }
     public void setPrice(double newPrice) {
-         price = newPrice;
+        price = newPrice;
     }
 
     @Override
     public String toString() {
-        return "Taco{" +
+        return "Drink{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", availability='" + availability + '\'' +
                 ", breakfast='" + breakfast + '\'' +
+
                 '}';
     }
 
