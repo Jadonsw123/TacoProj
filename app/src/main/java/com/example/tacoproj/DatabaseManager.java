@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DatabaseManager extends SQLiteOpenHelper {
     private static final String DATABASE_NAME =
             "candyDB";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 10;
     private static final String TABLE_TACO = "taco";
     private static final String TABLE_TOPPING = "topping";
     private static final String TABLE_SIDE = "side";
@@ -31,7 +31,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 //all have id that is required but gets overridden so put a random number doesn't matter
     //Taco will have price 1.23, whether or not its available ("false", "true"), and whether or not its for breakfast only, both, or just evening ("true","both","false")
     //Topping will have price 1.23, available ^, Breakfast ^,
-    //Drink will have price 1.23, available ^, breakfast ^, 
+    //Drink will have price 1.23, available ^, breakfast ^,
     //Side will have price 1.23, available ^, breakfast ^
     // create candy table
     public void onCreate(SQLiteDatabase db) {
@@ -41,7 +41,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 "( " + ID;
         sqlCreate += " integer primary key autoincrement, " +
                 NAME;
-        sqlCreate += " text, " + PRICE + " real, " + AVAILABLE + " text, " + BREAKFAST + " text)";
+        sqlCreate += " text, " + PRICE + " text, " + AVAILABLE + " text, " + BREAKFAST + " text)";
         db.execSQL(sqlCreate);
 
         //db.execSQL( "drop table if exists " + TABLE_TOPPING );
@@ -50,7 +50,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 "( " + ID;
         sqlCreate1 += " integer primary key autoincrement, " +
                 NAME;
-        sqlCreate1 += " text, " + PRICE + " real, " + AVAILABLE + " text, " + BREAKFAST + " text "  + ")";
+        sqlCreate1 += " text, " + PRICE + " text, " + AVAILABLE + " text, " + BREAKFAST + " text "  + ")";
         db.execSQL(sqlCreate1);
 
 
@@ -60,7 +60,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 "( " + ID;
         sqlCreate2 += " integer primary key autoincrement, " +
                 NAME;
-        sqlCreate2 += " text, " + PRICE + " real, " + AVAILABLE + " text, " + BREAKFAST + " text "  + ")";
+        sqlCreate2 += " text, " + PRICE + " text, " + AVAILABLE + " text, " + BREAKFAST + " text "  + ")";
         db.execSQL(sqlCreate2);
 
 
@@ -70,10 +70,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 "( " + ID;
         sqlCreate3 += " integer primary key autoincrement, " +
                 NAME;
-        sqlCreate3 += " text, " + PRICE + " real, " + AVAILABLE + " text, " + BREAKFAST + " text" + ")";
+        sqlCreate3 += " text, " + PRICE + " text, " + AVAILABLE + " text, " + BREAKFAST + " text" + ")";
         db.execSQL(sqlCreate3);
     }
-
 
     // drop candy table, recreate it
     public void onUpgrade(SQLiteDatabase db,
@@ -97,7 +96,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         String sqlInsert = "insert into " +
                 TABLE_TACO;
         sqlInsert += " values( null, '" + taco.getName();
-        sqlInsert += "', '{" + taco.getPrice() + "}' ,'" + taco.getAvailability() + "','" + taco.getBreakfast() + "')";
+        sqlInsert += "', '" + taco.getPrice() + "' ,'" + taco.getAvailability() + "','" + taco.getBreakfast() + "')";
         db.execSQL(sqlInsert);
         db.close();
 
@@ -108,7 +107,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         String sqlInsert = "insert into " +
                 TABLE_TOPPING;
         sqlInsert += " values( null, '" + topping.getName();
-        sqlInsert += "', '{" + topping.getPrice() + "}' ,'" + topping.getAvailability() + "','" + topping.getBreakfast() + "')";
+        sqlInsert += "', '" + topping.getPrice() + "' ,'" + topping.getAvailability() + "','" + topping.getBreakfast() + "')";
         db.execSQL(sqlInsert);
         db.close();
 
@@ -118,7 +117,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         String sqlInsert = "insert into " +
                 TABLE_DRINK;
         sqlInsert += " values( null, '" + drink.getName();
-        sqlInsert += "', '{" + drink.getPrice() + "}' ,'" + drink.getAvailability() + "','" + drink.getBreakfast() +  "')";
+        sqlInsert += "', '" + drink.getPrice() + "' ,'" + drink.getAvailability() + "','" + drink.getBreakfast() +  "')";
         db.execSQL(sqlInsert);
         db.close();
 
@@ -129,7 +128,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         String sqlInsert = "insert into " +
                 TABLE_DRINK;
         sqlInsert += " values( null, '" + side.getName();
-        sqlInsert += "', '{" + side.getPrice() + "}' ,'" + side.getAvailability() + "','" + side.getBreakfast() + "')";
+        sqlInsert += "', '" + side.getPrice() + "' ,'" + side.getAvailability() + "','" + side.getBreakfast() + "')";
         db.execSQL(sqlInsert);
         db.close();
 
@@ -213,7 +212,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
             taco = new Taco(
                     Integer.parseInt(cursor.getString(0)),
                     cursor.getString(1),
-                    cursor.getDouble(2),
+                    Double.parseDouble(cursor.getString(2)),
                     cursor.getString(3),
                     cursor.getString(4));
         cursor.close();
@@ -241,7 +240,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
             taco = new Taco(
                     Integer.parseInt(cursor.getString(0)),
                     cursor.getString(1),
-                    cursor.getDouble(2),
+                    Double.parseDouble(cursor.getString(2)),
                     cursor.getString(3),
                     cursor.getString(4));
         cursor.close();
@@ -269,7 +268,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
             side = new Side(
                     Integer.parseInt(cursor.getString(0)),
                     cursor.getString(1),
-                    cursor.getDouble(2),
+                    Double.parseDouble(cursor.getString(2)),
                     cursor.getString(3),
                     cursor.getString(4));
         cursor.close();
@@ -299,7 +298,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
             topping = new Topping(
                     Integer.parseInt(cursor.getString(0)),
                     cursor.getString(1),
-                    cursor.getDouble(2),
+                    Double.parseDouble(cursor.getString(2)),
                     cursor.getString(3),
                     cursor.getString(4));
         cursor.close();
@@ -327,7 +326,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
             drink = new Drink(
                     Integer.parseInt(cursor.getString(0)),
                     cursor.getString(1),
-                    cursor.getDouble(2),
+                    Double.parseDouble(cursor.getString(2)),
                     cursor.getString(3),
                     cursor.getString(4));
         cursor.close();
@@ -410,7 +409,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             Taco currentTaco = new Taco(Integer.parseInt(
                     cursor.getString(0)),
-                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4));
+                    cursor.getString(1),                     Double.parseDouble(cursor.getString(2)), cursor.getString(3), cursor.getString(4));
             tacos.add(currentTaco);
         }
         db.close();
@@ -432,7 +431,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             Topping currentTopping = new Topping(Integer.parseInt(
                     cursor.getString(0)),
-                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4));
+                    cursor.getString(1),                     Double.parseDouble(cursor.getString(2)), cursor.getString(3), cursor.getString(4));
             toppings.add(currentTopping);
         }
         db.close();
@@ -456,7 +455,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             Side currentSide = new Side(Integer.parseInt(
                     cursor.getString(0)),
-                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4));
+                    cursor.getString(1),                     Double.parseDouble(cursor.getString(2)), cursor.getString(3), cursor.getString(4));
             sides.add(currentSide);
         }
         db.close();
@@ -477,7 +476,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             Drink currentDrink = new Drink(Integer.parseInt(
                     cursor.getString(0)),
-                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4));
+                    cursor.getString(1),                     Double.parseDouble(cursor.getString(2)), cursor.getString(3), cursor.getString(4));
             drinks.add(currentDrink);
         }
         db.close();
