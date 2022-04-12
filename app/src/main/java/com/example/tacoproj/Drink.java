@@ -35,6 +35,22 @@ public class Drink {
         return price;
     }
 
+    public void setName(String newName) {
+        name = newName;
+    }
+    public void setBreakfast(String newBreakfast) {
+        breakfast = newBreakfast;
+    }
+    public void setAvailability(String newAvailability) {
+        availability = newAvailability;
+    }
+    public void setPrice(double newPrice) {
+        price = newPrice;
+    }
+    public void setType(String newType) {
+        type = newType;
+    }
+
     @Override
     public String toString() {
         return "Drink{" +

@@ -30,6 +30,20 @@ public class Side {
     public Double getPrice() {
         return price;
     }
+    public void setName(String newName) {
+        name = newName;
+    }
+    public void setBreakfast(String newBreakfast) {
+        breakfast = newBreakfast;
+    }
+    public void setAvailability(String newAvailability) {
+        availability = newAvailability;
+    }
+    public void setPrice(double newPrice) {
+        price = newPrice;
+    }
+
+
 
     @Override
     public String toString() {

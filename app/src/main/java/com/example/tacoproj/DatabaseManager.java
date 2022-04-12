@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DatabaseManager extends SQLiteOpenHelper {
     private static final String DATABASE_NAME =
             "candyDB";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     private static final String TABLE_TACO = "taco";
     private static final String TABLE_TOPPING = "topping";
     private static final String TABLE_SIDE = "side";
@@ -338,6 +338,67 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 
     }
+
+
+    public void updateTacoByName(String name, Taco newTaco) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "UPDATE " +
+                TABLE_TACO + "SET ";
+        sqlDelete += NAME + " = " + newTaco.getName();
+        sqlDelete += PRICE + " = " + newTaco.getPrice();
+        sqlDelete += BREAKFAST + " = " + newTaco.getBreakfast();
+        sqlDelete += AVAILABLE + " = " + newTaco.getAvailability();
+        sqlDelete += " where " + NAME + " = " + "'" + name + "'";
+        db.execSQL(sqlDelete);
+        db.close();
+    }
+
+    public void updateSideByName(String name, Side newSide) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "UPDATE " +
+                TABLE_SIDE + "SET ";
+        sqlDelete += NAME + " = " + newSide.getName();
+        sqlDelete += PRICE + " = " + newSide.getPrice();
+        sqlDelete += BREAKFAST + " = " + newSide.getBreakfast();
+        sqlDelete += AVAILABLE + " = " + newSide.getAvailability();
+        sqlDelete += " where " + NAME + " = " + "'" + name + "'";
+        db.execSQL(sqlDelete);
+        db.close();
+    }
+
+    public void updateToppingByName(String name, Topping newTopping) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "UPDATE " +
+                TABLE_TOPPING + "SET ";
+        sqlDelete += NAME + " = " + newTopping.getName();
+        sqlDelete += PRICE + " = " + newTopping.getPrice();
+        sqlDelete += BREAKFAST + " = " + newTopping.getBreakfast();
+        sqlDelete += AVAILABLE + " = " + newTopping.getAvailability();
+        sqlDelete += TYPE + " = " + newTopping.getType();
+        sqlDelete += " where " + NAME + " = " + "'" + name + "'";
+        db.execSQL(sqlDelete);
+        db.close();
+    }
+
+    public void updateDrinkByName(String name, Drink newDrink) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "UPDATE " +
+                TABLE_DRINK + "SET ";
+        sqlDelete += NAME + " = " + newDrink.getName();
+        sqlDelete += PRICE + " = " + newDrink.getPrice();
+        sqlDelete += BREAKFAST + " = " + newDrink.getBreakfast();
+        sqlDelete += AVAILABLE + " = " + newDrink.getAvailability();
+        sqlDelete += TYPE + " = " + newDrink.getType();
+        sqlDelete += " where " + NAME + " = " + "'" + name + "'";
+        db.execSQL(sqlDelete);
+        db.close();
+    }
+
+
 
     public ArrayList<Taco> selectAllTacos() {
         SQLiteDatabase db = this.getWritableDatabase();
