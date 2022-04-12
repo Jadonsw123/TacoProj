@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DatabaseManager extends SQLiteOpenHelper {
     private static final String DATABASE_NAME =
             "candyDB";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     private static final String TABLE_TACO = "taco";
     private static final String TABLE_TOPPING = "topping";
     private static final String TABLE_SIDE = "side";
@@ -23,7 +23,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
     private static final String ID = "id";
     private static final String AVAILABLE = "available";
     private static final String BREAKFAST = "breakfast";
-    private static final String TYPE = "type";
 
     // other constants for column names
     public DatabaseManager(@Nullable Context context) {
@@ -51,7 +50,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 "( " + ID;
         sqlCreate1 += " integer primary key autoincrement, " +
                 NAME;
-        sqlCreate1 += " text, " + PRICE + " real, " + AVAILABLE + " text, " + BREAKFAST + " text, " + TYPE + " text " + ")";
+        sqlCreate1 += " text, " + PRICE + " real, " + AVAILABLE + " text, " + BREAKFAST + " text "  + ")";
         db.execSQL(sqlCreate1);
 
 
@@ -61,7 +60,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 "( " + ID;
         sqlCreate2 += " integer primary key autoincrement, " +
                 NAME;
-        sqlCreate2 += " text, " + PRICE + " real, " + AVAILABLE + " text, " + BREAKFAST + " text, " + TYPE + " text " + ")";
+        sqlCreate2 += " text, " + PRICE + " real, " + AVAILABLE + " text, " + BREAKFAST + " text "  + ")";
         db.execSQL(sqlCreate2);
 
 
@@ -109,7 +108,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         String sqlInsert = "insert into " +
                 TABLE_TOPPING;
         sqlInsert += " values( null, '" + topping.getName();
-        sqlInsert += "', '{" + topping.getPrice() + "}' ,'" + topping.getAvailability() + "','" + topping.getBreakfast() + "','" + topping.getType() + "')";
+        sqlInsert += "', '{" + topping.getPrice() + "}' ,'" + topping.getAvailability() + "','" + topping.getBreakfast() + "')";
         db.execSQL(sqlInsert);
         db.close();
 
@@ -119,7 +118,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         String sqlInsert = "insert into " +
                 TABLE_DRINK;
         sqlInsert += " values( null, '" + drink.getName();
-        sqlInsert += "', '{" + drink.getPrice() + "}' ,'" + drink.getAvailability() + "','" + drink.getBreakfast() + "','" + drink.getType() + "')";
+        sqlInsert += "', '{" + drink.getPrice() + "}' ,'" + drink.getAvailability() + "','" + drink.getBreakfast() +  "')";
         db.execSQL(sqlInsert);
         db.close();
 
@@ -302,8 +301,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                     cursor.getString(1),
                     cursor.getDouble(2),
                     cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5));
+                    cursor.getString(4));
         cursor.close();
         return topping;
 
@@ -331,8 +329,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                     cursor.getString(1),
                     cursor.getDouble(2),
                     cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5));
+                    cursor.getString(4));
         cursor.close();
         return drink;
 
@@ -377,7 +374,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
         sqlDelete += PRICE + " = " + newTopping.getPrice();
         sqlDelete += BREAKFAST + " = " + newTopping.getBreakfast();
         sqlDelete += AVAILABLE + " = " + newTopping.getAvailability();
-        sqlDelete += TYPE + " = " + newTopping.getType();
         sqlDelete += " where " + NAME + " = " + "'" + name + "'";
         db.execSQL(sqlDelete);
         db.close();
@@ -392,7 +388,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
         sqlDelete += PRICE + " = " + newDrink.getPrice();
         sqlDelete += BREAKFAST + " = " + newDrink.getBreakfast();
         sqlDelete += AVAILABLE + " = " + newDrink.getAvailability();
-        sqlDelete += TYPE + " = " + newDrink.getType();
         sqlDelete += " where " + NAME + " = " + "'" + name + "'";
         db.execSQL(sqlDelete);
         db.close();
@@ -422,11 +417,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return tacos;
     }
 
-    public ArrayList<Topping> selectAllTacoToppings() {
+    public ArrayList<Topping> selectAllToppings() {
         SQLiteDatabase db = this.getWritableDatabase();
 // construct sqlQuery, a select query
         String sqlQuery = "select * from " + TABLE_TOPPING;
-        sqlQuery += " where " + TYPE + " = 'taco'";
 
 // call rawQuery to execute the select query
         Cursor cursor = db.rawQuery(sqlQuery, null);
@@ -438,7 +432,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             Topping currentTopping = new Topping(Integer.parseInt(
                     cursor.getString(0)),
-                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4));
             toppings.add(currentTopping);
         }
         db.close();
@@ -446,28 +440,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<Topping> selectAllSideToppings() {
-        SQLiteDatabase db = this.getWritableDatabase();
-// construct sqlQuery, a select query
-        String sqlQuery = "select * from " + TABLE_TOPPING;
-        sqlQuery += " where " + TYPE + " = 'side'";
-
-// call rawQuery to execute the select query
-        Cursor cursor = db.rawQuery(sqlQuery, null);
-// process the result of the query
-        // select all the rows in the taco table
-        // return an ArrayList of Taco objects
-        // build a Taco object, then return it
-        ArrayList<Topping> toppings = new ArrayList<Topping>();
-        while (cursor.moveToNext()) {
-            Topping currentTopping = new Topping(Integer.parseInt(
-                    cursor.getString(0)),
-                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
-            toppings.add(currentTopping);
-        }
-        db.close();
-        return toppings;
-    }
 
     public ArrayList<Side> selectAllSides() {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -490,11 +462,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.close();
         return sides;
     }
-    public ArrayList<Drink> selectAllDrinkTypes() {
+    public ArrayList<Drink> selectAllDrinks() {
         SQLiteDatabase db = this.getWritableDatabase();
 // construct sqlQuery, a select query
         String sqlQuery = "select * from " + TABLE_DRINK;
-        sqlQuery += " where " + TYPE + " = 'type'";
 
 // call rawQuery to execute the select query
         Cursor cursor = db.rawQuery(sqlQuery, null);
@@ -506,33 +477,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             Drink currentDrink = new Drink(Integer.parseInt(
                     cursor.getString(0)),
-                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4));
             drinks.add(currentDrink);
         }
         db.close();
         return drinks;
     }
-    public ArrayList<Drink> selectAllDrinkSizes() {
-        SQLiteDatabase db = this.getWritableDatabase();
-// construct sqlQuery, a select query
-        String sqlQuery = "select * from " + TABLE_DRINK;
-        sqlQuery += " where " + TYPE + " = 'size'";
 
-// call rawQuery to execute the select query
-        Cursor cursor = db.rawQuery(sqlQuery, null);
-// process the result of the query
-        // select all the rows in the taco table
-        // return an ArrayList of Taco objects
-        // build a Taco object, then return it
-        ArrayList<Drink> drinks = new ArrayList<Drink>();
-        while (cursor.moveToNext()) {
-            Drink currentDrink = new Drink(Integer.parseInt(
-                    cursor.getString(0)),
-                    cursor.getString(1), cursor.getDouble(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
-            drinks.add(currentDrink);
-        }
-        db.close();
-        return drinks;
-    }
 
 }

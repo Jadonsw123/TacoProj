@@ -6,16 +6,14 @@ public class Topping {
     private int id;
     private String breakfast;//false means no, true means yes
     private String availability;//false means no, true means yes
-    private String type;
 
-    public Topping(int newId, String newName, double newPrice, String newAvailability, String newBreakfast, String newType){
+    public Topping(int newId, String newName, double newPrice, String newAvailability, String newBreakfast){
         name = newName;
         price = newPrice;
         id = newId;
         breakfast = newBreakfast;
 
         availability = newAvailability;
-        type = newType;
     }
 
 
@@ -27,9 +25,6 @@ public class Topping {
     }
     public String getAvailability() {
         return availability;
-    }
-    public String getType  () {
-        return type;
     }
     public Double getPrice() {
         return price;
@@ -46,9 +41,6 @@ public class Topping {
     public void setPrice(double newPrice) {
         price = newPrice;
     }
-    public void setType(String newType) {
-        type = newType;
-    }
 
     @Override
     public String toString() {
@@ -58,7 +50,6 @@ public class Topping {
                 ", price='" + price + '\'' +
                 ", availability='" + availability + '\'' +
                 ", breakfast='" + breakfast + '\'' +
-                ", type='" + type + '\'' +
 
                 '}';
     }
