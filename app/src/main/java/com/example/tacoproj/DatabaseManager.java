@@ -30,8 +30,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 //all have id that is required but gets overridden so put a random number doesn't matter
     //Taco will have price 1.23, whether or not its available ("false", "true"), and whether or not its for breakfast only, both, or just evening ("true","both","false")
-    //Topping will have price 1.23, available ^, Breakfast ^, and type which will say what topping it is for ("taco","side")
-    //Drink will have price 1.23, available ^, breakfast ^, and type which will say if it is a type of drink or the different sizes we have ("type","size")
+    //Topping will have price 1.23, available ^, Breakfast ^,
+    //Drink will have price 1.23, available ^, breakfast ^, 
     //Side will have price 1.23, available ^, breakfast ^
     // create candy table
     public void onCreate(SQLiteDatabase db) {
