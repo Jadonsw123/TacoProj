@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_admin" android:screenOrientation="landscape"></activity>
-        <activity android:name=".PasscodeActivity" android:screenOrientation="landscape" />
+        <activity android:name=".addActivity"></activity>
+        <activity
+            android:name=".activity_admin"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".PasscodeActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape">
