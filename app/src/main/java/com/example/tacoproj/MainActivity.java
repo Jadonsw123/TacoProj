@@ -19,10 +19,14 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseManager dbManager;
+    private ArrayList<String> order;
 
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        order = new ArrayList<String>();
+
+
         dbManager = new DatabaseManager(this);
         dbManager.deleteTacoByName("egg");
         Taco testTaco = dbManager.selectTacoByName("egg");
@@ -111,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
     public void ClickDevMenu(View view) {
         Log.w("Deez", "SECRET BUTTON!");
         Intent adminIntent = new Intent(this, PasscodeActivity.class);
+        order.add("test12345");
+        adminIntent.putExtra("order",order);
         this.startActivity(adminIntent);
     }
     //hello
