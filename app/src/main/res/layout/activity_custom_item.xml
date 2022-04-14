@@ -18,14 +18,135 @@
         android:layout_marginBottom="125dp"
         android:layout_marginTop="60dp"
         tools:context=".CustomItem"
+
         >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
 
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/mainBreakfast"
-            />
+            >
 
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainBreakfast"
+                android:orientation="vertical"
+                android:layout_below="@+id/bMainLabel"
+                android:layout_gravity="center_horizontal"
+
+                >
+                <TextView
+                    android:id="@+id/bMainLabel"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Taco"
+                    android:textSize="50sp"
+                    android:padding="10dp"
+
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bEggs"
+                    android:text="Scrambled Eggs"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bBeans"
+                    android:text="Beans"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bBacon"
+                    android:text="Bacon"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bSausage"
+                    android:text="Sausage"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#A9A9A9"
+                android:layout_margin="10dp"
+                />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/toppingBreakfast"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+
+                >
+                <TextView
+                    android:id="@+id/bToppingLabel"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Toppings"
+                    android:textSize="50sp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+
+
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bCheese"
+                    android:text="Cheese"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bSourcream"
+                    android:text="Sour Cream"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bAvocado"
+                    android:text="Avocado"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bRfBeans"
+                    android:text="Refried Beans"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+
+            </RadioGroup>
+
+        </LinearLayout>
 
     </ScrollView>
 
