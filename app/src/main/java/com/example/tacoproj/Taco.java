@@ -48,7 +48,7 @@ public class Taco {
         return "Taco{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
+                ", price='" + String.valueOf(price) + '\'' +
                 ", availability='" + availability + '\'' +
                 ", breakfast='" + breakfast + '\'' +
                 '}';

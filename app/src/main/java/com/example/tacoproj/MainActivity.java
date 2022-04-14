@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             testTaco = new Taco(5,"egg",2.55,"true","false");
             dbManager.insertTaco(testTaco);
         }
+        Log.w("test",testTaco.toString());
         Topping testTopping = new Topping(5,"cheese",.50,"true","true");
         Topping testTopping1 = new Topping(5,"peppers",.50,"true","true");
         dbManager.deleteToppingByName("cheese");
