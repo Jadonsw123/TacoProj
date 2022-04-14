@@ -29,7 +29,7 @@ public class PasscodeActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(String number) {
 
-                        startActivity(new Intent(PasscodeActivity.this,activity_admin.class));
+                        startActivity(new Intent(PasscodeActivity.this,addActivity.class));
                         finish();
                     }
                 });

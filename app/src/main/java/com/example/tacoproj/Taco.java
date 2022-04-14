@@ -26,9 +26,21 @@ public class Taco {
     public String getAvailability() {
         return availability;
     }
-
     public Double getPrice() {
         return price;
+    }
+
+    public void setName(String newName) {
+         name = newName;
+    }
+    public void setBreakfast(String newBreakfast) {
+         breakfast = newBreakfast;
+    }
+    public void setAvailability(String newAvailability) {
+         availability = newAvailability;
+    }
+    public void setPrice(double newPrice) {
+         price = newPrice;
     }
 
     @Override
@@ -36,7 +48,7 @@ public class Taco {
         return "Taco{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
+                ", price='" + String.valueOf(price) + '\'' +
                 ", availability='" + availability + '\'' +
                 ", breakfast='" + breakfast + '\'' +
                 '}';
