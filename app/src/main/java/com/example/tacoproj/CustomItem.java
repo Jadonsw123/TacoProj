@@ -33,6 +33,7 @@ public class CustomItem extends Activity {
 
     private DatabaseManager dbManager;
 
+
     //use from each database
     private RadioButton[] breakfastItems;
     private List<String> bTacos;
@@ -65,7 +66,12 @@ public class CustomItem extends Activity {
 
 
 
-    public void selectionMenu(Activity activity, List<String> menuItems, String selectionLabel){
+    //activity is activity_custom_item.xml or CustomItem.java
+    //menuItems is a String list of the customizations/selections for the group
+    //selectionLabel is the label of the selection group
+    //radioGroupName should fit the type of selection items ex: bMainItems or bMainOptions -->
+    //                                                    --> for main type of taco for breakfast menu
+    public void selectionMenu(Activity activity, List<String> menuItems, String selectionLabel, String radioGroupName){
         //call --> selectionMenu(bTacos);
         //ADD label
         TextView label = new TextView(activity);
@@ -74,6 +80,7 @@ public class CustomItem extends Activity {
         addContentView(label,labelParams);
 
         //ADD items radio Buttons
+        RadioGroup radioGroup = new RadioGroup(activity);
         rbs = new RadioButton[menuItems.size()];
         params = new RadioGroup.LayoutParams[rbs.length];
         for (int i = 0; i < rbs.length; i++){
@@ -81,6 +88,7 @@ public class CustomItem extends Activity {
             rbs[i] = new RadioButton(activity);
             rbs[i].setGravity(Gravity.CENTER);
             rbs[i].setText(menuItems.get(i));
+            rbs[i].
 
             params[i] = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, menuItems.size());
             params[i].leftMargin = 0;
@@ -91,7 +99,7 @@ public class CustomItem extends Activity {
 
     public void addListenerOnButton(){
 
-      /*  bMainOptions = (RadioGroup) findViewById(R.id.radioName);
+        RadioGroup menuOptions = (RadioGroup) findViewById(R.id.);
         contOrder = (Button) findViewById(R.id.buttonName);
        */
 
