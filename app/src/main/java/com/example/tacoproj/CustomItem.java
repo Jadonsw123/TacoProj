@@ -29,7 +29,7 @@ public class CustomItem extends Activity {
 
     private RadioGroup bMainOptions;
     //private RadioButton option;
-    private Button contOrder;
+    private Button continueOrder;
 
     private DatabaseManager dbManager;
 
@@ -88,7 +88,8 @@ public class CustomItem extends Activity {
             rbs[i] = new RadioButton(activity);
             rbs[i].setGravity(Gravity.CENTER);
             rbs[i].setText(menuItems.get(i));
-            rbs[i].
+            radioGroup.addView(rbs[i]);
+
 
             params[i] = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, menuItems.size());
             params[i].leftMargin = 0;
@@ -97,19 +98,23 @@ public class CustomItem extends Activity {
         }
     }
 
-    public void addListenerOnButton(){
+    //radioGroup is the name of the radio group in the scroll view
+    // *make for loop to access all Radio Groups in ScrollView*
+    public void addListenerOnButton(RadioGroup radioGroup){
 
-        RadioGroup menuOptions = (RadioGroup) findViewById(R.id.);
-        contOrder = (Button) findViewById(R.id.buttonName);
-       */
+        //int radioGroupId = radioGroup.getId();
+        ScrollView menuOptions = (ScrollView) findViewById(R.id.selection);
+        continueOrder = (Button) findViewById(R.id.completeSelection);
 
-        contOrder.setOnClickListener(new OnClickListener() {
+
+        continueOrder.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                int selectedId = bMainOptions.getCheckedRadioButtonId();
-                //option = (RadioButton) findViewById(selectedId);
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                option = (RadioButton) findViewById(selectedId);
                 //action to happen after button is pressed
+                setContentView(R.layout.activity_main);
 
             }
         });
