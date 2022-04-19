@@ -9,6 +9,8 @@ import android.util.Log;
 
 import com.hanks.passcodeview.PasscodeView;
 
+import java.util.ArrayList;
+
 public class PasscodeActivity extends AppCompatActivity {
     PasscodeView passcodeView;
 
@@ -16,6 +18,12 @@ public class PasscodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passcode);
+
+        Bundle b=this.getIntent().getExtras();
+        ArrayList<String> order =b.getStringArrayList("order");
+        Log.w("test",order.get(0));
+
+
         passcodeView= findViewById(R.id.passcodeView);
         passcodeView.setPasscodeLength(4)
                 .setLocalPasscode("1111")
