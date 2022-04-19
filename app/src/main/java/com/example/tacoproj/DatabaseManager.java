@@ -382,12 +382,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         String sqlDelete = "UPDATE " +
-                TABLE_DRINK + "SET ";
-        sqlDelete += NAME + " = " + newDrink.getName();
-        sqlDelete += PRICE + " = " + newDrink.getPrice();
-        sqlDelete += BREAKFAST + " = " + newDrink.getBreakfast();
-        sqlDelete += AVAILABLE + " = " + newDrink.getAvailability();
-        sqlDelete += " where " + NAME + " = " + "'" + name + "'";
+                TABLE_DRINK + " SET ";
+        sqlDelete += NAME + " = '" + newDrink.getName() + "', ";
+        sqlDelete += PRICE + " = " + newDrink.getPrice() + ", ";
+        sqlDelete += BREAKFAST + " = '" + newDrink.getBreakfast() + "', ";
+        sqlDelete += AVAILABLE + " = '" + newDrink.getAvailability() + "' ";
+        sqlDelete += " WHERE " + NAME + " = " + "'" + name + "'";
         db.execSQL(sqlDelete);
         db.close();
     }
