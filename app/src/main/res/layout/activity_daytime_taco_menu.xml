@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomItem">
-
-
+    tools:context=".DaytimeTacoMenu">
 
     <ScrollView
-        android:id="@+id/selection"
+        android:id="@+id/daytimeSelection"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,8 +48,8 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/bEggs"
-                    android:text="@string/egg_taco_op"
+                    android:id="@+id/dtBeef"
+                    android:text="@string/beef_taco_op"
                     android:textSize = "30sp"
                     android:padding="10dp"
 
@@ -60,24 +58,24 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/bBeans"
+                    android:id="@+id/dtChicken"
+                    android:text="@string/chicken_taco_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dtVeggie"
+                    android:text="@string/veggie_taco_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dtBean"
                     android:text="@string/bean_taco_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bBacon"
-                    android:text="@string/bacon_taco_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/bSausage"
-                    android:text="@string/sausage_taco_op"
                     android:textSize = "30sp"
                     android:padding="10dp"
                     />
@@ -114,7 +112,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/bCheese"
+                    android:id="@+id/dtCheese"
                     android:text="@string/cheese_top_op"
                     android:textSize = "30sp"
                     android:padding="10dp"
@@ -123,7 +121,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/bSourCream"
+                    android:id="@+id/dtSourCream"
                     android:text="@string/sour_cream_top_op"
                     android:textSize = "30sp"
                     android:padding="10dp"
@@ -131,7 +129,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/bAvocado"
+                    android:id="@+id/dtAvocado"
                     android:text="@string/avocado_top_op"
                     android:textSize = "30sp"
                     android:padding="10dp"
@@ -139,8 +137,48 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/bRfBeans"
+                    android:id="@+id/dtRfBeans"
                     android:text="@string/refried_beans_top_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dtLettuce"
+                    android:text="@string/lettuce_top_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dtTomato"
+                    android:text="@string/tomato_top_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dtSalsa"
+                    android:text="@string/salsa_top_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dtPico"
+                    android:text="@string/pico_top_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dtCVeggies"
+                    android:text="@string/cveggies_top_op"
                     android:textSize = "30sp"
                     android:padding="10dp"
                     />
@@ -157,7 +195,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/completeSelection"
-        android:layout_alignRight="@id/selection"
+        android:layout_alignRight="@id/daytimeSelection"
         android:text="Continue Order"
         android:textSize="30dp"
         android:padding="10dp"

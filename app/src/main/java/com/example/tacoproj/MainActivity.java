@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseManager dbManager;
     private ArrayList<String> order;
 
+
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     }
 
 
@@ -72,9 +74,13 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        if(item.equals(R.id.AddTacoButton)){
+            setContentView(R.layout.activity_custom_item);
+        }
 
         switch (item.getItemId()) {
             case R.id.AddDrinkButton:
+
                 //Intent insertIntent = new Intent(this, InsertActivity.class );
                 //this.startActivity( insertIntent );
                 break;
@@ -108,8 +114,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     public void ClickProceed(View view) {
         Log.w("Deez", "Proceed to cart pressed");
+
     }
 
     public void ClickDevMenu(View view) {

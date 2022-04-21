@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">TacoProj</string>
+
+    <!--labels-->
+    <string name="taco_selection_label">Select Taco</string>
+    <string name="topping_selection_label">Select Toppings</string>
+
+
+    <!--breakfast taco selection menu-->
+    <string name="egg_taco_op">Scrambled Eggs</string>
+    <string name="bean_taco_op">Bean</string>
+    <string name="bacon_taco_op">Bacon</string>
+    <string name="sausage_taco_op">Sausage</string>
+
+    <!--daytime taco selection menu-->
+    <string name="beef_taco_op">Beef</string>
+    <string name="chicken_taco_op">Chicken</string>
+    <string name="veggie_taco_op">Veggie Mix</string>
+
+
+    <!-- taco topping selection menu-->
+    <!--breakfast-->
+    <string name="cheese_top_op">Cheese</string>
+    <string name="sour_cream_top_op">Sour Cream</string>
+    <string name="avocado_top_op">Avocado</string>
+    <string name="refried_beans_top_op">Refried Beans</string>
+    <!--daytime-->
+    <string name="lettuce_top_op">Lettuce</string>
+    <string name="tomato_top_op">Tomato</string>
+    <string name="salsa_top_op">Salsa</string>
+    <string name="pico_top_op">Pico De Gallo</string>
+    <string name="cveggies_top_op">Cooked Veggies</string>
+
+    <!--drinks-->
+    <string name="water_op">Bottled Water</string>
+    <string name="coke_op">Coke-a-Cola</string>
+    <string name="sprite_op">Sprite</string>
+    <string name="drpepper_op">Dr.Pepper</string>
+    <string name="lemonade_op">Lemonade</string>
+
+
 </resources>
+
+
