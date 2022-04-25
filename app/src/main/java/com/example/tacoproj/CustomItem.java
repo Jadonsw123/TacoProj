@@ -34,7 +34,7 @@ import javax.xml.parsers.ParserConfigurationException;
 public class CustomItem extends AppCompatActivity {
 
 
-    private static final String FILENAME = "src/main/res/layout/activity_custom_item.xml";
+   /* private static final String FILENAME = "src/main/res/layout/activity_custom_item.xml";
 
     public static void main(String[] args) throws ParserConfigurationException {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -46,82 +46,45 @@ public class CustomItem extends AppCompatActivity {
 
             for
         }
-    }
+    }*/
 
 
 
 
-    private RadioGroup bMainOptions;
-    //private RadioButton option;
+
     private Button continueOrder;
 
     private DatabaseManager dbManager;
 
 
     //use from each database
-    private RadioButton[] breakfastItems;
-    public List<String> bTacos;
-
     private RadioButton [] rbs;
     private RadioGroup.LayoutParams [] params;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_item);
+        /*setContentView(R.layout.activity_custom_item);*/
 
-       selectionMenu(this, bTacos, "Select Breakfast Taco"/*, "bMainOptions"*/);
-       addListenerOnButton(radioGroup);
+       if(MainActivity.get)
+        if(isMorning()){
+           setContentView(R.layout.activity_breakfast_menu);
+
+       }
+       else{
+           setContentView(R.layout.activity_daytime_taco_menu);
+
+       }
+
+
     }
 
     public CustomItem(){
-        //http://www.fredosaurus.com/notes-java/GUI/components/50radio_buttons/25radiobuttons.html
-
-        ArrayList<Taco> tempTacos = dbManager.selectAllTacos();
-
-        //BREAKFAST MENU
-        for(Taco taco : tempTacos ){
-            if(taco.getBreakfast().equals("true")){
-                bTacos.add(taco.getName()) ;
-            }
-        }
-        //BREAKFAST MENU
 
     }
 
 
-    public RadioGroup radioGroup;
-    //activity is activity_custom_item.xml or CustomItem.java
-    //menuItems is a String list of the customizations/selections for the group
-    //selectionLabel is the label of the selection group
-    //radioGroupName should fit the type of selection items ex: bMainItems or bMainOptions -->
-    //                                                    --> for main type of taco for breakfast menu
-    public void selectionMenu(Context context, List<String> menuItems, String selectionLabel/*, String radioGroupName*/){
-        //call --> selectionMenu(bTacos);
-        //ADD label
-        TextView label = new TextView(context);
-        LinearLayout.LayoutParams labelParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        label.setText(selectionLabel);
-        addContentView(label,labelParams);
 
-        //ADD items radio Buttons
-        radioGroup = new RadioGroup(context);
-        rbs = new RadioButton[menuItems.size()];
-        params = new RadioGroup.LayoutParams[rbs.length];
-        for (int i = 0; i < rbs.length; i++){
-
-            rbs[i] = new RadioButton(context);
-            rbs[i].setGravity(Gravity.CENTER);
-            rbs[i].setText(menuItems.get(i));
-            radioGroup.addView(rbs[i]);
-
-
-            params[i] = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, menuItems.size());
-            params[i].leftMargin = 0;
-            params[i].topMargin = 10;
-            addContentView(rbs[i], params[i]);
-        }
-    }
 
     //radioGroup is the name of the radio group in the scroll view
     // *make for loop to access all Radio Groups in ScrollView*
@@ -144,6 +107,19 @@ public class CustomItem extends AppCompatActivity {
 
             }
         });
+
+    }
+
+
+    public List<String> order;
+    public void addToOrder(RadioButton selection){
+        String addItem = (String) selection.getText();
+        order.add(addItem);
+    }
+
+    public boolean isDrinksMenu(boolean displayed){
+
+
 
     }
 

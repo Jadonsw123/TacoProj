@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DrinksMenu">
+    tools:context=".SidesMenu">
 
     <ScrollView
-        android:id="@+id/drinkSelection"
+        android:id="@+id/sideSelection"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,18 +29,18 @@
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/drinks"
+                android:id="@+id/sides"
                 android:orientation="vertical"
-                android:layout_below="@+id/drinksLabel"
+                android:layout_below="@+id/sidesLabel"
                 android:layout_gravity="center_horizontal"
 
                 >
                 <TextView
-                    android:id="@+id/drinksLabel"
+                    android:id="@+id/sidesLabel"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/drink_selection_label"
+                    android:text="@string/side_selection_label"
                     android:textSize="50sp"
                     android:padding="10dp"
 
@@ -48,8 +48,8 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/water"
-                    android:text="@string/water_op"
+                    android:id="@+id/potatoes"
+                    android:text="@string/potatoes_op"
                     android:textSize = "30sp"
                     android:padding="10dp"
 
@@ -58,35 +58,20 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/coke"
-                    android:text="@string/coke_op"
+                    android:id="@+id/pickles"
+                    android:text="@string/pickles_op"
                     android:textSize = "30sp"
                     android:padding="10dp"
                     />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/sprite"
-                    android:text="@string/sprite_op"
+                    android:id="@+id/fruit"
+                    android:text="@string/fruit_op"
                     android:textSize = "30sp"
                     android:padding="10dp"
                     />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/drpepper"
-                    android:text="@string/drpepper_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lemonade"
-                    android:text="@string/lemonade_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
+
 
             </RadioGroup>
 
@@ -102,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/completeSelection"
-        android:layout_alignRight="@id/drinkSelection"
+        android:layout_alignRight="@id/sideSelection"
         android:text="Continue Order"
         android:textSize="30dp"
         android:padding="10dp"
@@ -111,4 +96,5 @@
         >
 
     </Button>
+
 </RelativeLayout>

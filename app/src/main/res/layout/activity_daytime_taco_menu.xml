@@ -11,14 +11,15 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="60dp"
         android:layout_above="@id/completeSelection"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="60dp"
         tools:context=".CustomItem"
 
         >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,166 +28,165 @@
             >
 
             <RadioGroup
+                android:id="@+id/mainDaytime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/mainBreakfast"
-                android:orientation="vertical"
-                android:layout_below="@+id/bMainLabel"
+                android:layout_below="@+id/dtMainLabel"
                 android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
 
                 >
+
                 <TextView
-                    android:id="@+id/bMainLabel"
+                    android:id="@+id/dtMainLabel"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/taco_selection_label"
                     android:textSize="50sp"
-                    android:padding="10dp"
 
                     />
+
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtBeef"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/beef_taco_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
+                    android:textSize="30sp"
 
                     />
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtChicken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/chicken_taco_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
+                    android:textSize="30sp" />
+
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtVeggie"
-                    android:text="@string/veggie_taco_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
-                <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dtBean"
-                    android:text="@string/bean_taco_op"
-                    android:textSize = "30sp"
                     android:padding="10dp"
-                    />
+                    android:text="@string/veggie_taco_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtBean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/bean_taco_op"
+                    android:textSize="30sp" />
 
             </RadioGroup>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:background="#A9A9A9"
                 android:layout_margin="10dp"
-                />
+                android:background="#A9A9A9" />
 
             <RadioGroup
+                android:id="@+id/toppingDaytime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/toppingBreakfast"
-                android:orientation="vertical"
                 android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
 
                 >
+
                 <TextView
                     android:id="@+id/bToppingLabel"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="10dp"
                     android:text="@string/topping_selection_label"
                     android:textSize="50sp"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="10dp"
 
 
                     />
+
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtCheese"
-                    android:text="@string/cheese_top_op"
-                    android:textSize = "30sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:padding="10dp"
-                    />
+                    android:text="@string/cheese_top_op"
+                    android:textSize="30sp" />
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtSourCream"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/sour_cream_top_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
+                    android:textSize="30sp" />
+
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtAvocado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/avocado_top_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
+                    android:textSize="30sp" />
+
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtRfBeans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/refried_beans_top_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
+                    android:textSize="30sp" />
+
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtLettuce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/lettuce_top_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
+                    android:textSize="30sp" />
+
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtTomato"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/tomato_top_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
+                    android:textSize="30sp" />
+
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtSalsa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@string/salsa_top_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
+                    android:textSize="30sp" />
+
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/dtPico"
-                    android:text="@string/pico_top_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
-                <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dtCVeggies"
-                    android:text="@string/cveggies_top_op"
-                    android:textSize = "30sp"
                     android:padding="10dp"
-                    />
+                    android:text="@string/pico_top_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtCVeggies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/cveggies_top_op"
+                    android:textSize="30sp" />
 
             </RadioGroup>
 
         </LinearLayout>
-
 
 
     </ScrollView>

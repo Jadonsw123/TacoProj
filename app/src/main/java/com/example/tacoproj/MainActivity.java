@@ -59,11 +59,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
-
-
-
     }
 
 
@@ -81,13 +76,15 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.AddDrinkButton:
 
-                //Intent insertIntent = new Intent(this, InsertActivity.class );
-                //this.startActivity( insertIntent );
+                setContentView(R.layout.activity_drinks_menu);
+                CustomItem.isDrinksMenu() = true;
+                Intent drinksIntent = new Intent(this, DrinksMenu.class );
+                this.startActivity( drinksIntent );
                 break;
             case R.id.AddSideButton:
                 Log.w("Deez", "Nuts Delete");
-                //Intent deleteIntent = new Intent(this, DeleteActivity.class);
-                //this.startActivity(deleteIntent);
+                Intent sidesIntent = new Intent(this, SidesMenu.class);
+                this.startActivity(sidesIntent);
                 break;
 
             case R.id.AddTacoButton:

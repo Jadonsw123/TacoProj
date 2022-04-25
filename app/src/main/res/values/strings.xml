@@ -4,6 +4,8 @@
     <!--labels-->
     <string name="taco_selection_label">Select Taco</string>
     <string name="topping_selection_label">Select Toppings</string>
+    <string name="drink_selection_label">Select Drink</string>
+    <string name="side_selection_label">Select Side</string>
 
 
     <!--breakfast taco selection menu-->
@@ -38,6 +40,10 @@
     <string name="drpepper_op">Dr.Pepper</string>
     <string name="lemonade_op">Lemonade</string>
 
+    <!--sides-->
+    <string name="potatoes_op">Potatoes</string>
+    <string name="pickles_op">Pickles</string>
+    <string name="fruit_op">Mix Fruit Cup</string>
 
 </resources>
 
