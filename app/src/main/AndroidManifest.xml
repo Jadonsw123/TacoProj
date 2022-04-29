@@ -15,6 +15,9 @@
             android:name=".addActivity"
             android:screenOrientation="landscape" />
         <activity
+            android:name=".CartActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".activity_admin"
             android:screenOrientation="landscape" />
         <activity
