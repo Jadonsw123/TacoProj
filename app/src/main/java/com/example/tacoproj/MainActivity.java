@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        order = new ArrayList<String>();
+        order = new ArrayList<>();
 
 
         dbManager = new DatabaseManager(this);
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        if(item.equals(R.id.AddTacoButton)){
+        if(item.equals(R.id.AddTacoButton)  ){
             setContentView(R.layout.activity_custom_item);
         }
 
@@ -77,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.AddDrinkButton:
 
                 setContentView(R.layout.activity_drinks_menu);
-                CustomItem.isDrinksMenu() = true;
-                Intent drinksIntent = new Intent(this, DrinksMenu.class );
+                Intent drinksIntent = new Intent(this, DrinksMenu.class);
                 this.startActivity( drinksIntent );
                 break;
             case R.id.AddSideButton:

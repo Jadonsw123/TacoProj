@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -33,61 +34,68 @@ import javax.xml.parsers.ParserConfigurationException;
 //https://mkyong.com/java/how-to-modify-xml-file-in-java-dom-parser/
 public class CustomItem extends AppCompatActivity {
 
+    Button continueOrder;
 
-   /* private static final String FILENAME = "src/main/res/layout/activity_custom_item.xml";
+    DatabaseManager dbManager = new DatabaseManager(this);
 
-    public static void main(String[] args) throws ParserConfigurationException {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    //VIEWS
+    String menu;
+    RadioGroup radioGroup;
+    RadioGroup rgDrinks = (RadioGroup)findViewById(R.id.drinks);
+    RadioGroup rgSides = (RadioGroup)findViewById(R.id.sides);
+    RadioGroup rgBTacos = (RadioGroup)findViewById(R.id.mainBreakfast);
+    RadioGroup rgDTacos = (RadioGroup)findViewById(R.id.mainDaytime);
+//https://www.geeksforgeeks.org/android-how-to-add-radio-buttons-in-an-android-application/
+    //'menu' input can be: "drinks", "sides", "btaco", "dtaco"
+    public CustomItem(){
+        /*if(menu.equals("drinks")){
+            radioGroup
+        }*/
+    }
 
-        try(InputStream is = new FileInputStream(FILENAME)){
-            DocumentBuilder db= dbf.newDocumentBuilder();
-            Document doc = db.parse(is);
-            NodeList menuSelections = doc.getElementsByTagName("selection");
-
-            for
-        }
-    }*/
-
-
-
-
-
-    private Button continueOrder;
-
-    private DatabaseManager dbManager;
-
-
-    //use from each database
-    private RadioButton [] rbs;
-    private RadioGroup.LayoutParams [] params;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         /*setContentView(R.layout.activity_custom_item);*/
+        continueOrder = (Button)findViewById(R.id.completeSelection);
+        radioGroup = rgDrinks;
 
-       if(MainActivity.get)
-        if(isMorning()){
-           setContentView(R.layout.activity_breakfast_menu);
+        radioGroup.clearCheck();
 
-       }
-       else{
-           setContentView(R.layout.activity_daytime_taco_menu);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton radioButton = (RadioButton)group.findViewById(checkedId);
+            }
+        });
+        continueOrder.setOnClickListener(new View.OnClickListener(){
 
-       }
+            @Override
+            public void onClick(View v)
+            {
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                if (selectedId == -1){
+                    Toast.makeText(CustomItem.this/*activity*/,"No item has been selected", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    RadioButton radioButton = (RadioButton)radioGroup.findViewById(selectedId);
+                    //ADD TO ORDER
+                }
+            }
+        });
 
 
     }
 
-    public CustomItem(){
-
-    }
 
 
+    /*public void updateMenuItems(RadioGroup menuItems, String change){
+        radioGroup = menuItems;
+
+    }*/
 
 
-    //radioGroup is the name of the radio group in the scroll view
-    // *make for loop to access all Radio Groups in ScrollView*
     public void addListenerOnButton(RadioGroup radioGroup){
 
         //int radioGroupId = radioGroup.getId();
@@ -100,9 +108,7 @@ public class CustomItem extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //int selectedId = radioGroup.getCheckedRadioButtonId();
-                //option = (RadioButton) findViewById(selectedId);
-                //action to happen after button is pressed
+
                 setContentView(R.layout.activity_main);
 
             }
@@ -115,12 +121,6 @@ public class CustomItem extends AppCompatActivity {
     public void addToOrder(RadioButton selection){
         String addItem = (String) selection.getText();
         order.add(addItem);
-    }
-
-    public boolean isDrinksMenu(boolean displayed){
-
-
-
     }
 
 
