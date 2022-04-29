@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".addActivity"></activity>
+        <activity android:name=".UpdateActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".CartActivity"
             android:screenOrientation="landscape" />
