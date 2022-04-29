@@ -110,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void ClickProceed(View view) {
         Log.w("Deez", "Proceed to cart pressed");
+        Intent cartIntent = new Intent(this, CartActivity.class);
+        order.add("Taco egg");
+        order.add("Topping cheese");
+        order.add("Topping peppers");
+        cartIntent.putExtra("order",order);
+        this.startActivity(cartIntent);
     }
 
     public void ClickDevMenu(View view) {
