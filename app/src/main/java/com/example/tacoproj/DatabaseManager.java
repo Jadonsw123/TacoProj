@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.TableLayout;
 
 import androidx.annotation.Nullable;
 
@@ -340,12 +341,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         String sqlDelete = "UPDATE " +
-                TABLE_TACO + "SET ";
-        sqlDelete += NAME + " = " + newTaco.getName();
-        sqlDelete += PRICE + " = " + newTaco.getPrice();
-        sqlDelete += BREAKFAST + " = " + newTaco.getBreakfast();
-        sqlDelete += AVAILABLE + " = " + newTaco.getAvailability();
-        sqlDelete += " where " + NAME + " = " + "'" + name + "'";
+                TABLE_TACO + " SET ";
+        sqlDelete += NAME + " = '" + newTaco.getName() + "', ";
+        sqlDelete += PRICE + " = " + newTaco.getPrice() + ", ";
+        sqlDelete += BREAKFAST + " = '" + newTaco.getBreakfast() + "', ";
+        sqlDelete += AVAILABLE + " = '" + newTaco.getAvailability() + "' ";
+        sqlDelete += " WHERE " + NAME + " = " + "'" + name + "'";
         db.execSQL(sqlDelete);
         db.close();
     }
@@ -354,12 +355,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         String sqlDelete = "UPDATE " +
-                TABLE_SIDE + "SET ";
-        sqlDelete += NAME + " = " + newSide.getName();
-        sqlDelete += PRICE + " = " + newSide.getPrice();
-        sqlDelete += BREAKFAST + " = " + newSide.getBreakfast();
-        sqlDelete += AVAILABLE + " = " + newSide.getAvailability();
-        sqlDelete += " where " + NAME + " = " + "'" + name + "'";
+                TABLE_SIDE + " SET ";
+        sqlDelete += NAME + " = '" + newSide.getName() + "', ";
+        sqlDelete += PRICE + " = " + newSide.getPrice() + ", ";
+        sqlDelete += BREAKFAST + " = '" + newSide.getBreakfast() + "', ";
+        sqlDelete += AVAILABLE + " = '" + newSide.getAvailability() + "' ";
+        sqlDelete += " WHERE " + NAME + " = " + "'" + name + "'";
         db.execSQL(sqlDelete);
         db.close();
     }
@@ -368,12 +369,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         String sqlDelete = "UPDATE " +
-                TABLE_TOPPING + "SET ";
-        sqlDelete += NAME + " = " + newTopping.getName();
-        sqlDelete += PRICE + " = " + newTopping.getPrice();
-        sqlDelete += BREAKFAST + " = " + newTopping.getBreakfast();
-        sqlDelete += AVAILABLE + " = " + newTopping.getAvailability();
-        sqlDelete += " where " + NAME + " = " + "'" + name + "'";
+                TABLE_TOPPING + " SET ";
+        sqlDelete += NAME + " = '" + newTopping.getName() + "', ";
+        sqlDelete += PRICE + " = " + newTopping.getPrice() + ", ";
+        sqlDelete += BREAKFAST + " = '" + newTopping.getBreakfast() + "', ";
+        sqlDelete += AVAILABLE + " = '" + newTopping.getAvailability() + "' ";
+        sqlDelete += " WHERE " + NAME + " = " + "'" + name + "'";
         db.execSQL(sqlDelete);
         db.close();
     }
@@ -382,12 +383,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         String sqlDelete = "UPDATE " +
-                TABLE_DRINK + "SET ";
-        sqlDelete += NAME + " = " + newDrink.getName();
-        sqlDelete += PRICE + " = " + newDrink.getPrice();
-        sqlDelete += BREAKFAST + " = " + newDrink.getBreakfast();
-        sqlDelete += AVAILABLE + " = " + newDrink.getAvailability();
-        sqlDelete += " where " + NAME + " = " + "'" + name + "'";
+                TABLE_DRINK + " SET ";
+        sqlDelete += NAME + " = '" + newDrink.getName() + "', ";
+        sqlDelete += PRICE + " = " + newDrink.getPrice() + ", ";
+        sqlDelete += BREAKFAST + " = '" + newDrink.getBreakfast() + "', ";
+        sqlDelete += AVAILABLE + " = '" + newDrink.getAvailability() + "' ";
+        sqlDelete += " WHERE " + NAME + " = " + "'" + name + "'";
         db.execSQL(sqlDelete);
         db.close();
     }
