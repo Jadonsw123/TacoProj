@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DaytimeTacoMenu">
+
+    <ScrollView
+        android:id="@+id/daytimeSelection"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/completeSelection"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="60dp"
+        tools:context=".CustomItem"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+
+            <RadioGroup
+                android:id="@+id/mainDaytime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dtMainLabel"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    android:id="@+id/dtMainLabel"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/taco_selection_label"
+                    android:textSize="50sp"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/dtBeef"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/beef_taco_op"
+                    android:textSize="30sp"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/dtChicken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/chicken_taco_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtVeggie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/veggie_taco_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtBean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/bean_taco_op"
+                    android:textSize="30sp" />
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:background="#A9A9A9" />
+
+            <RadioGroup
+                android:id="@+id/toppingDaytime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    android:id="@+id/bToppingLabel"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/topping_selection_label"
+                    android:textSize="50sp"
+
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/dtCheese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/cheese_top_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtSourCream"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/sour_cream_top_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtAvocado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/avocado_top_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtRfBeans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/refried_beans_top_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtLettuce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/lettuce_top_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtTomato"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/tomato_top_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtSalsa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/salsa_top_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtPico"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/pico_top_op"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dtCVeggies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/cveggies_top_op"
+                    android:textSize="30sp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/completeSelection"
+        android:layout_alignRight="@id/daytimeSelection"
+        android:text="Continue Order"
+        android:textSize="30dp"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"
+        >
+
+    </Button>
+
+
+
+
+</RelativeLayout>

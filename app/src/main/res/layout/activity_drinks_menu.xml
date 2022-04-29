@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DrinksMenu">
+
+    <ScrollView
+        android:id="@+id/drinkSelection"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_above="@id/completeSelection"
+        android:layout_alignParentTop="true"
+        tools:context=".CustomItem"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/drinks"
+                android:orientation="vertical"
+                android:layout_below="@+id/drinksLabel"
+                android:layout_gravity="center_horizontal"
+
+                >
+                <TextView
+                    android:id="@+id/drinksLabel"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/drink_selection_label"
+                    android:textSize="50sp"
+                    android:padding="10dp"
+
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/water"
+                    android:text="@string/water_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/coke"
+                    android:text="@string/coke_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sprite"
+                    android:text="@string/sprite_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/drpepper"
+                    android:text="@string/drpepper_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lemonade"
+                    android:text="@string/lemonade_op"
+                    android:textSize = "30sp"
+                    android:padding="10dp"
+                    />
+
+            </RadioGroup>
+
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/completeSelection"
+        android:layout_alignRight="@id/drinkSelection"
+        android:text="Continue Order"
+        android:textSize="30dp"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"
+        >
+
+    </Button>
+</RelativeLayout>
