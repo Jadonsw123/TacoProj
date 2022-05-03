@@ -3,6 +3,7 @@ package com.example.tacoproj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -25,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         order = new ArrayList<String>();
-
+        order.add("Taco egg");
+        order.add("Topping cheese");
+        order.add("Topping peppers");
 
         dbManager = new DatabaseManager(this);
         dbManager.deleteTacoByName("egg");
@@ -111,11 +114,9 @@ public class MainActivity extends AppCompatActivity {
     public void ClickProceed(View view) {
         Log.w("Deez", "Proceed to cart pressed");
         Intent cartIntent = new Intent(this, CartActivity.class);
-        order.add("Taco egg");
-        order.add("Topping cheese");
-        order.add("Topping peppers");
+
         cartIntent.putExtra("order",order);
-        this.startActivity(cartIntent);
+        startActivityForResult(cartIntent,1);
     }
 
     public void ClickDevMenu(View view) {
@@ -124,6 +125,21 @@ public class MainActivity extends AppCompatActivity {
         order.add("test12345");
         adminIntent.putExtra("order",order);
         this.startActivity(adminIntent);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (1) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    ArrayList<String> newOrder = data.getStringArrayListExtra("newOrder");
+                    order = newOrder;
+                    // TODO Update your TextView.
+                }
+                break;
+            }
+        }
     }
     //hello
 }
