@@ -3,6 +3,8 @@ package com.example.tacoproj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -21,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseManager dbManager;
     private ArrayList<String> order;
 
-
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        order = new ArrayList<>();
-
+        order = new ArrayList<String>();
+        order.add("Taco egg");
+        order.add("Topping cheese");
+        order.add("Topping peppers");
 
         dbManager = new DatabaseManager(this);
         dbManager.deleteTacoByName("egg");
@@ -59,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+
+
+
     }
 
 
@@ -68,9 +75,6 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-//        if(item.equals(R.id.AddTacoButton)  ){
-//            setContentView(R.layout.activity_custom_item);
-//        }
 
         switch (item.getItemId()) {
             case R.id.AddDrinkButton:
@@ -109,11 +113,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
     public void ClickProceed(View view) {
         Log.w("Deez", "Proceed to cart pressed");
+        Intent cartIntent = new Intent(this, CartActivity.class);
 
+        cartIntent.putExtra("order",order);
+        startActivityForResult(cartIntent,1);
     }
 
     public void ClickDevMenu(View view) {
@@ -122,6 +127,21 @@ public class MainActivity extends AppCompatActivity {
         order.add("test12345");
         adminIntent.putExtra("order",order);
         this.startActivity(adminIntent);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (1) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    ArrayList<String> newOrder = data.getStringArrayListExtra("newOrder");
+                    order = newOrder;
+                    // TODO Update your TextView.
+                }
+                break;
+            }
+        }
     }
     //hello
 }
