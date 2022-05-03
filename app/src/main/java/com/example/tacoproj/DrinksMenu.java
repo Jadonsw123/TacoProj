@@ -8,14 +8,14 @@ import android.util.Log;
 import android.view.MenuItem;
 
 public class DrinksMenu extends CustomItem {
-    CustomItem drinks;
+    //CustomItem drinks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks_menu);
-    }
 
+    }
     public DrinksMenu(){
 
     }

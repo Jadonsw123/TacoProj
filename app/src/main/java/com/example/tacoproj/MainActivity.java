@@ -21,10 +21,11 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseManager dbManager;
     private ArrayList<String> order;
 
+
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        order = new ArrayList<String>();
+        order = new ArrayList<>();
 
 
         dbManager = new DatabaseManager(this);
@@ -58,30 +59,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
-
-
     }
 
 
-
-
+    static String menu;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+//        if(item.equals(R.id.AddTacoButton)  ){
+//            setContentView(R.layout.activity_custom_item);
+//        }
 
         switch (item.getItemId()) {
             case R.id.AddDrinkButton:
-                //Intent insertIntent = new Intent(this, InsertActivity.class );
-                //this.startActivity( insertIntent );
+                menu = "drinks";
+                Intent drinksIntent = new Intent(this, CustomItem.class);
+                this.startActivity( drinksIntent );
                 break;
             case R.id.AddSideButton:
                 Log.w("Deez", "Nuts Delete");
-                //Intent deleteIntent = new Intent(this, DeleteActivity.class);
-                //this.startActivity(deleteIntent);
+                menu = "sides";
+                Intent sidesIntent = new Intent(this, CustomItem.class);
+                this.startActivity(sidesIntent);
                 break;
 
             case R.id.AddTacoButton:
@@ -108,14 +109,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     public void ClickProceed(View view) {
         Log.w("Deez", "Proceed to cart pressed");
-        Intent cartIntent = new Intent(this, CartActivity.class);
-        order.add("Taco egg");
-        order.add("Topping cheese");
-        order.add("Topping peppers");
-        cartIntent.putExtra("order",order);
-        this.startActivity(cartIntent);
+
     }
 
     public void ClickDevMenu(View view) {

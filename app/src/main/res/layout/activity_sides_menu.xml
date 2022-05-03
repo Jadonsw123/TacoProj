@@ -14,14 +14,14 @@
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_marginTop="60dp"
-        android:layout_above="@id/completeSelection"
+        android:layout_above="@id/completeSideSelection"
         android:layout_alignParentTop="true"
         tools:context=".CustomItem"
 
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
 
             >
@@ -31,7 +31,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/sides"
                 android:orientation="vertical"
-                android:layout_below="@+id/sidesLabel"
                 android:layout_gravity="center_horizontal"
 
                 >
@@ -86,7 +85,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/completeSelection"
+        android:id="@+id/completeSideSelection"
         android:layout_alignRight="@id/sideSelection"
         android:text="Continue Order"
         android:textSize="30dp"

@@ -39,17 +39,21 @@ public class CustomItem extends AppCompatActivity {
     DatabaseManager dbManager = new DatabaseManager(this);
 
     //VIEWS
-    String menu;
     RadioGroup radioGroup;
-    RadioGroup rgDrinks = (RadioGroup)findViewById(R.id.drinks);
-    RadioGroup rgSides = (RadioGroup)findViewById(R.id.sides);
-    RadioGroup rgBTacos = (RadioGroup)findViewById(R.id.mainBreakfast);
-    RadioGroup rgDTacos = (RadioGroup)findViewById(R.id.mainDaytime);
+    RadioGroup rgDrinks;
+    RadioGroup rgSides;
+    RadioGroup rgBTacos;
+    RadioGroup rgDTacos;
 //https://www.geeksforgeeks.org/android-how-to-add-radio-buttons-in-an-android-application/
     //'menu' input can be: "drinks", "sides", "btaco", "dtaco"
     public CustomItem(){
+
+        rgDrinks = findViewById(R.id.drinks);
+        rgSides = findViewById(R.id.sides);
+        rgBTacos = findViewById(R.id.mainBreakfast);
+        rgDTacos = findViewById(R.id.mainDaytime);
         /*if(menu.equals("drinks")){
-            radioGroup
+            radioGroup =
         }*/
     }
 
@@ -57,16 +61,35 @@ public class CustomItem extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*setContentView(R.layout.activity_custom_item);*/
-        continueOrder = (Button)findViewById(R.id.completeSelection);
-        radioGroup = rgDrinks;
+        if(MainActivity.menu.equals("drinks")){
+            radioGroup = rgDrinks;
+            continueOrder = findViewById(R.id.completeDrinkSelection);
+            setContentView(R.layout.activity_drinks_menu);
+        }
+        else if(MainActivity.menu.equals("sides")){
+            radioGroup = rgSides;
+            continueOrder = findViewById(R.id.completeSideSelection);
+            setContentView(R.layout.activity_sides_menu);
+        }
+        else if(MainActivity.menu.equals("btaco")){
+            radioGroup = rgBTacos;
+            continueOrder = findViewById(R.id.completeBTacoSelection);
+            setContentView(R.layout.activity_breakfast_menu);
+        }
+        else if(MainActivity.menu.equals("dtaco")){
+            radioGroup = rgDTacos;
+            continueOrder = findViewById(R.id.completeDTacoSelection);
+            setContentView(R.layout.activity_daytime_taco_menu);
+        }
+
+        //continueOrder = findViewById(R.id.completeSelection);
 
         radioGroup.clearCheck();
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton radioButton = (RadioButton)group.findViewById(checkedId);
+                RadioButton radioButton = group.findViewById(checkedId);
             }
         });
         continueOrder.setOnClickListener(new View.OnClickListener(){
@@ -79,8 +102,9 @@ public class CustomItem extends AppCompatActivity {
                     Toast.makeText(CustomItem.this/*activity*/,"No item has been selected", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    RadioButton radioButton = (RadioButton)radioGroup.findViewById(selectedId);
+                    RadioButton radioButton = radioGroup.findViewById(selectedId);
                     //ADD TO ORDER
+                    addToOrder(radioButton);
                 }
             }
         });
