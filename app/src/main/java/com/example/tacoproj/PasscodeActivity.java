@@ -14,6 +14,9 @@ import java.util.ArrayList;
 public class PasscodeActivity extends AppCompatActivity {
     PasscodeView passcodeView;
 
+    DatabaseManager dbManager;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,8 @@ public class PasscodeActivity extends AppCompatActivity {
         Bundle b=this.getIntent().getExtras();
         ArrayList<String> order =b.getStringArrayList("order");
         Log.w("test",order.get(0));
+
+        dbManager = new DatabaseManager(this);
 
 
         passcodeView= findViewById(R.id.passcodeView);
@@ -36,8 +41,11 @@ public class PasscodeActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(String number) {
+                        for(Drink x: dbManager.selectAllDrinks())
+                            Log.w("deez",x.getName());
+                        Log.w("deez","THE THING ISNT WORKING");
 
-                        startActivity(new Intent(PasscodeActivity.this,UpdateActivity.class));
+                        startActivity(new Intent(PasscodeActivity.this,activity_admin.class));
                         finish();
                     }
                 });

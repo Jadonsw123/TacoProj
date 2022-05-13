@@ -117,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
 
         cartIntent.putExtra("order",order);
         startActivityForResult(cartIntent,1);
+
+        startActivity(new Intent(this,UpdateActivity.class));
     }
 
     public void ClickDevMenu(View view) {

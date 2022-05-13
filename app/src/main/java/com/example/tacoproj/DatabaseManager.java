@@ -219,6 +219,30 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.execSQL(sqlDelete);
         db.close();
     }
+    public void deleteToppingById(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "delete from " +
+                TABLE_TOPPING;
+        sqlDelete += " where id = " + id;
+        db.execSQL(sqlDelete);
+        db.close();
+    }
+    public void deleteSideById(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "delete from " +
+                TABLE_SIDE;
+        sqlDelete += " where id = " + id;
+        db.execSQL(sqlDelete);
+        db.close();
+    }
+    public void deleteDrinkById(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "delete from " +
+                TABLE_DRINK;
+        sqlDelete += " where id = " + id;
+        db.execSQL(sqlDelete);
+        db.close();
+    }
 
     public void deleteTacoByName(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
