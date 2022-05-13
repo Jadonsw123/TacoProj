@@ -10,6 +10,9 @@ public class BreakfastMenu extends CustomItem {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_breakfast_menu);
+
+        radioButtonHandler(radioGroup, continueOrder);
+
     }
 
 }

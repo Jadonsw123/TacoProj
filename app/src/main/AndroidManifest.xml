@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".addActivity"></activity>
+        <activity android:name=".CustomItem"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".DaytimeTacoMenu"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".DrinksMenu"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".SidesMenu"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".BreakfastMenu"
+            android:screenOrientation="landscape"/>
         <activity android:name=".UpdateActivity"
             android:screenOrientation="landscape"/>
         <activity

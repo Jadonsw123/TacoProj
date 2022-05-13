@@ -10,6 +10,9 @@ public class DaytimeTacoMenu extends CustomItem {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daytime_taco_menu);
+
+        radioButtonHandler(radioGroup, continueOrder);
+
     }
 
 }

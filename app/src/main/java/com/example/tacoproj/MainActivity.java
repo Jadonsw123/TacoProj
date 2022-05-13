@@ -69,30 +69,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    static String menu;
+
+    //static String menu;
+     Intent customItem;
+    static Button menuButton;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        menuButton = (Button)item;
 
         switch (item.getItemId()) {
+
             case R.id.AddDrinkButton:
-                menu = "drinks";
-                Intent drinksIntent = new Intent(this, CustomItem.class);
-                this.startActivity( drinksIntent );
+                //menu = "drinks";
+                customItem = new Intent(this, CustomItem.class);
+                //menuIntent.putExtra("menu","drinks");
+                this.startActivity( customItem );
                 break;
             case R.id.AddSideButton:
                 Log.w("Deez", "Nuts Delete");
-                menu = "sides";
-                Intent sidesIntent = new Intent(this, CustomItem.class);
-                this.startActivity(sidesIntent);
+
+                //menu = "sides";
+                customItem = new Intent(this, CustomItem.class);
+               //menuIntent.putExtra("menu","sides");
+                this.startActivity(customItem);
                 break;
 
             case R.id.AddTacoButton:
                 Log.w("Deez", "Nuts Update");
-                //Intent updateIntent = new Intent(this, UpdateActivity.class );
-                //this.startActivity( updateIntent );
+
+                //menu = "dtaco";
+                customItem = new Intent(this, CustomItem.class );
+                //menuIntent.putExtra("menu","dtaco");
+                this.startActivity(customItem );
                 break;
 
 
