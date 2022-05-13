@@ -14,14 +14,16 @@ import java.util.ArrayList;
 public class DatabaseManager extends SQLiteOpenHelper {
     private static final String DATABASE_NAME =
             "candyDB";
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
     private static final String TABLE_TACO = "taco";
     private static final String TABLE_TOPPING = "topping";
     private static final String TABLE_SIDE = "side";
     private static final String TABLE_DRINK = "drink";
+    private static final String TABLE_ORDERS = "orders";
     private static final String NAME = "name";
     private static final String PRICE = "price";
     private static final String ID = "id";
+    private static final String DATA = "DATA";
     private static final String AVAILABLE = "available";
     private static final String BREAKFAST = "breakfast";
 
@@ -73,6 +75,13 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 NAME;
         sqlCreate3 += " text, " + PRICE + " text, " + AVAILABLE + " text, " + BREAKFAST + " text" + ")";
         db.execSQL(sqlCreate3);
+
+        String sqlCreate4 = "create table " + TABLE_ORDERS +
+                "( " + ID;
+        sqlCreate4 += " integer primary key autoincrement, " +
+                NAME;
+        sqlCreate4 += " text " + ")";
+        db.execSQL(sqlCreate4);
     }
 
     // drop candy table, recreate it
@@ -87,9 +96,63 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 TABLE_DRINK);
         db.execSQL("drop table if exists " +
                 TABLE_SIDE);
+        db.execSQL("drop table if exists " +
+                TABLE_ORDERS);
 // Re-create table(s)
         onCreate(db);
 
+    }
+    public int insertOrder(String order){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlInsert = "insert into " +
+                TABLE_ORDERS;
+        sqlInsert += " values( null, '" + order;
+        sqlInsert += "')";
+        db.execSQL(sqlInsert);
+        db.close();
+        return getOrderIdByName(order);
+
+
+    }
+    public void deleteOrderById(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "delete from " +
+                TABLE_ORDERS;
+        sqlDelete += " where id = " + id;
+        db.execSQL(sqlDelete);
+        db.close();
+    }
+    public int getOrderIdByName(String order){
+        SQLiteDatabase db = this.getWritableDatabase();
+// construct sqlQuery, a select query
+        String sqlQuery = "select * from " + TABLE_ORDERS;
+        sqlQuery += " where " + NAME + " = " + "'" + order + "'";
+
+// call rawQuery to execute the select query
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+        Log.w("cursor:", cursor.toString());
+// process the result of the query
+        int result = -1;
+        if (cursor.moveToFirst())
+            result = Integer.parseInt(cursor.getString(0));
+        cursor.close();
+        return result;
+    }
+    public ArrayList<String> getAllOrders(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String sqlQuery = "select * from " + TABLE_ORDERS;
+
+
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        ArrayList<String> orders = new ArrayList<String>();
+        while (cursor.moveToNext()) {
+
+            orders.add(cursor.getString(1));
+        }
+        db.close();
+        return orders;
     }
 
     public void insertTaco(Taco taco) {
