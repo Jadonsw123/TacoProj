@@ -56,16 +56,16 @@ public class CustomItem extends AppCompatActivity {
 
 //https://www.geeksforgeeks.org/android-how-to-add-radio-buttons-in-an-android-application/
     //'menu' input can be: "drinks", "sides", "btaco", "dtaco"
-    public CustomItem(){
-
-        rgDrinks = findViewById(R.id.drinks);
-        rgSides = findViewById(R.id.sides);
-        rgBTacos = findViewById(R.id.mainBreakfast);
-        rgDTacos = findViewById(R.id.mainDaytime);
-        /*if(menu.equals("drinks")){
-            radioGroup =
-        }*/
-    }
+//    public CustomItem(){
+//
+//        rgDrinks = findViewById(R.id.drinks);
+//        rgSides = findViewById(R.id.sides);
+//        rgBTacos = findViewById(R.id.mainBreakfast);
+//        rgDTacos = findViewById(R.id.mainDaytime);
+//        /*if(menu.equals("drinks")){
+//            radioGroup =
+//        }*/
+//    }
 
 
 
@@ -73,12 +73,13 @@ public class CustomItem extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Bundle b=this.getIntent().getExtras();
+        menu =b.getString("menu");
         /*b=MainActivity.menuIntent.getExtras();
         menu =b.getString("menu");*/
 
 
-        /*switch (menu) {
+        switch (menu) {
             case "drinks":
                 radioGroup = rgDrinks;
                 continueOrder = findViewById(R.id.completeDrinkSelection);
@@ -99,9 +100,9 @@ public class CustomItem extends AppCompatActivity {
                 continueOrder = findViewById(R.id.completeDTacoSelection);
                 setContentView(R.layout.activity_daytime_taco_menu);
                 break;
-        }*/
+        }
 
-        buttonClick(menuButton);
+        //buttonClick(menuButton);
 
         //continueOrder = findViewById(R.id.completeSelection);
 
@@ -215,37 +216,37 @@ public class CustomItem extends AppCompatActivity {
 
     }
 
-     Intent menuIntent;
-     public void buttonClick (Button button) {
-
-         switch (button.getId()) {
-
-            case R.id.AddDrinkButton:
-                Log.w("Deez", "Nuts drink");
-                radioGroup = rgDrinks;
-                continueOrder = findViewById(R.id.completeDrinkSelection);
-                menuIntent = new Intent(this, DrinksMenu.class);
-                this.startActivity(menuIntent);
-                break;
-            case R.id.AddSideButton:
-                Log.w("Deez", "Nuts side");
-                radioGroup = rgSides;
-                continueOrder = findViewById(R.id.completeSideSelection);
-                menuIntent = new Intent(this, Side.class);
-                this.startActivity(menuIntent);
-                break;
-
-            case R.id.AddTacoButton:
-                Log.w("Deez", "Nuts taco");
-                radioGroup = rgDTacos;
-                continueOrder = findViewById(R.id.completeDTacoSelection);
-                menuIntent = new Intent(this, DaytimeTacoMenu.class);
-                this.startActivity(menuIntent);
-                break;
-
-        }
-        //return super.buttonClick(button);
-    }
+     //Intent menuIntent;
+//     public void buttonClick (Button button) {
+//if(button == null)return;
+//         switch (button.getId()) {
+//
+//            case R.id.AddDrinkButton:
+//                Log.w("Deez", "Nuts drink");
+//                radioGroup = rgDrinks;
+//                continueOrder = findViewById(R.id.completeDrinkSelection);
+//                menuIntent = new Intent(this, DrinksMenu.class);
+//                this.startActivity(menuIntent);
+//                break;
+//            case R.id.AddSideButton:
+//                Log.w("Deez", "Nuts side");
+//                radioGroup = rgSides;
+//                continueOrder = findViewById(R.id.completeSideSelection);
+//                menuIntent = new Intent(this, Side.class);
+//                this.startActivity(menuIntent);
+//                break;
+//
+//            case R.id.AddTacoButton:
+//                Log.w("Deez", "Nuts taco");
+//                radioGroup = rgDTacos;
+//                continueOrder = findViewById(R.id.completeDTacoSelection);
+//                menuIntent = new Intent(this, DaytimeTacoMenu.class);
+//                this.startActivity(menuIntent);
+//                break;
+//
+//        }
+//        //return super.buttonClick(button);
+//    }
 
 
 }

@@ -28,7 +28,7 @@
             >
 
             <RadioGroup
-                android:id="@+id/mainDaytime"
+                android:id="@+id/tacoList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -47,39 +47,39 @@
 
                     />
 
-                <RadioButton
-                    android:id="@+id/dtBeef"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/beef_taco_op"
-                    android:textSize="30sp"
+<!--                <RadioButton-->
+<!--                    android:id="@+id/dtBeef"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="@string/beef_taco_op"-->
+<!--                    android:textSize="30sp"-->
 
-                    />
+<!--                    />-->
 
-                <RadioButton
-                    android:id="@+id/dtChicken"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/chicken_taco_op"
-                    android:textSize="30sp" />
+<!--                <RadioButton-->
+<!--                    android:id="@+id/dtChicken"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="@string/chicken_taco_op"-->
+<!--                    android:textSize="30sp" />-->
 
-                <RadioButton
-                    android:id="@+id/dtVeggie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/veggie_taco_op"
-                    android:textSize="30sp" />
+<!--                <RadioButton-->
+<!--                    android:id="@+id/dtVeggie"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="@string/veggie_taco_op"-->
+<!--                    android:textSize="30sp" />-->
 
-                <RadioButton
-                    android:id="@+id/dtBean"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/bean_taco_op"
-                    android:textSize="30sp" />
+<!--                <RadioButton-->
+<!--                    android:id="@+id/dtBean"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="@string/bean_taco_op"-->
+<!--                    android:textSize="30sp" />-->
 
             </RadioGroup>
 

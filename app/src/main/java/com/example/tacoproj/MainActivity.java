@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.AddDrinkButton:
                 //menu = "drinks";
                 customItem = new Intent(this, CustomItem.class);
-                //menuIntent.putExtra("menu","drinks");
+                customItem.putExtra("menu","drinks");
                 this.startActivity( customItem );
                 break;
             case R.id.AddSideButton:
@@ -130,6 +130,26 @@ public class MainActivity extends AppCompatActivity {
 
         cartIntent.putExtra("order",order);
         startActivityForResult(cartIntent,1);
+    }
+
+
+    public void ClickAddDrink(View view) {
+        Log.w("Deez", "addDrink");
+        Intent newIntent = new Intent(this, CustomItem.class);
+        newIntent.putExtra("menu","drinks");
+        this.startActivity( newIntent );
+    }
+    public void ClickAddTaco(View view) {
+        Log.w("Deez", "addDrink");
+        Intent newIntent = new Intent(this, CustomItem.class);
+        newIntent.putExtra("menu","btaco");
+        this.startActivity( newIntent );
+    }
+    public void ClickAddSide(View view) {
+        Log.w("Deez", "addDrink");
+        Intent newIntent = new Intent(this, CustomItem.class);
+        newIntent.putExtra("menu","sides");
+        this.startActivity( newIntent );
     }
 
     public void ClickDevMenu(View view) {
