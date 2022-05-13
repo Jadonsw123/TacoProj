@@ -1,6 +1,8 @@
 package com.example.tacoproj;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -18,7 +20,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import org.w3c.dom.CDATASection;
 import org.w3c.dom.Text;
@@ -148,8 +152,8 @@ public class CartActivity extends AppCompatActivity {
             });
 
             //grid.addView(ids[i], width / 10, ViewGroup.LayoutParams.WRAP_CONTENT);
-            grid.addView(namesAndPrices[i][0], width /100*45, ViewGroup.LayoutParams.WRAP_CONTENT);
-            grid.addView(namesAndPrices[i][1], width /100*30, ViewGroup.LayoutParams.WRAP_CONTENT);
+            grid.addView(namesAndPrices[i][0], width /100*40, ViewGroup.LayoutParams.WRAP_CONTENT);
+            grid.addView(namesAndPrices[i][1], width /100*35, ViewGroup.LayoutParams.WRAP_CONTENT);
             //.addView(namesAndPrices[i][2], width/100*15, ViewGroup.LayoutParams.WRAP_CONTENT);
             grid.addView(buttons[i], width / 100*25, ViewGroup.LayoutParams.WRAP_CONTENT);
 
@@ -164,8 +168,64 @@ public class CartActivity extends AppCompatActivity {
         totalView1.setText("");
         //totalView1.setTextSize(50);
         //totalView1.setPadding(width/100*50,0,0,0);
-        grid.addView(totalView1,width/100*30,ViewGroup.LayoutParams.WRAP_CONTENT);
-        grid.addView(totalView, width/100*25, ViewGroup.LayoutParams.WRAP_CONTENT);
+        grid.addView(totalView1,width/100*40,ViewGroup.LayoutParams.WRAP_CONTENT);
+        grid.addView(totalView, width/100*35, ViewGroup.LayoutParams.WRAP_CONTENT);
+        TextView totalView2 = new TextView(this);
+        grid.addView(totalView2,width/100*25,ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        TextView spacer = new TextView(this);
+        grid.addView(spacer, width/100*40,ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        Button submitButton = new Button(this);
+        submitButton.setText("Check Out");
+
+        submitButton.setTextSize(50);
+
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String orderString = "";
+                for(String indOrder:order){
+                    orderString += indOrder + ",";
+                }
+                int orderNumber = dbManager.insertOrder(orderString);
+
+
+
+
+                // 1. Instantiate an <code><a href="/reference/android/app/AlertDialog.Builder.html">AlertDialog.Builder</a></code> with its constructor
+                AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
+
+// 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage("Your order number is "+orderNumber)
+                        .setTitle("Order");
+
+                builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                        onBackPressed();
+                    }
+                });
+//                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        // User cancelled the dialog
+//                    }
+//                });
+
+// 3. Get the <code><a href="/reference/android/app/AlertDialog.html">AlertDialog</a></code> from <code><a href="/reference/android/app/AlertDialog.Builder.html#create()">create()</a></code>
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+                //updateView();
+                //Log.w("test","Toast");
+                //Toast.makeText(CartActivity.this,"Your order number is "+orderNumber,Toast.LENGTH_LONG).show();
+                //order = new ArrayList<String>();
+                //onBackPressed();
+            }
+        });
+    grid.addView(submitButton,width/100*35,ViewGroup.LayoutParams.WRAP_CONTENT);
 
 
         relativeLayout.addView(scrollView);
