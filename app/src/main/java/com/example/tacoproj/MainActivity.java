@@ -61,10 +61,67 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //SIDES
+        Side sideOne = new Side(1,"Potatoes",0.80,"true", "true");
+        Side sideTwo = new Side(2,"Pickles",0.80,"true", "true");
+        Side sideThree = new Side(3,"Mix Fruit Cup",0.80,"true", "true");
 
+        dbManager.insertSide(sideOne);
+        dbManager.insertSide(sideTwo);
+        dbManager.insertSide(sideThree);
 
+        //TOPPINGS
+        Topping toppingOne = new Topping(1, "Cheese", 0.25, "true", "true");
+        Topping toppingTwo = new Topping(2, "Sour Cream", 0.25, "true", "true");
+        Topping toppingThree = new Topping(3, "Avocado", 0.25, "true", "true");
+        Topping toppingFour = new Topping(4, "Refried Beans", 0.25, "true", "true");
+        Topping toppingFive = new Topping(5, "Lettuce", 0.25, "true", "false");
+        Topping toppingSix = new Topping(6, "Tomato", 0.25, "true", "false");
+        Topping toppingSeven = new Topping(7, "Salsa", 0.25, "true", "false");
+        Topping toppingEight = new Topping(8, "Pico De Gallo", 0.25, "true", "false");
+        Topping toppingNine = new Topping(9, "Cooked Veggies", 0.25, "true", "false");
 
+        dbManager.insertTopping(toppingOne);
+        dbManager.insertTopping(toppingTwo);
+        dbManager.insertTopping(toppingThree);
+        dbManager.insertTopping(toppingFour);
+        dbManager.insertTopping(toppingFive);
+        dbManager.insertTopping(toppingSix);
+        dbManager.insertTopping(toppingSeven);
+        dbManager.insertTopping(toppingEight);
+        dbManager.insertTopping(toppingNine);
 
+        //TACOS
+        Taco tacoOne = new Taco(1, "Scrambled Eggs", 2.00, "true", "true");
+        Taco tacoTwo = new Taco(2, "Bean", 2.00, "true", "true");
+        Taco tacoThree = new Taco(3, "Bacon", 2.00, "true", "true");
+        Taco tacoFour = new Taco(4, "Sausage", 2.00, "true", "true");
+        Taco tacoFive = new Taco(5, "Beef", 2.00, "true", "false");
+        Taco tacoSix = new Taco(6, "Chicken", 2.00, "true", "false");
+        Taco tacoSeven = new Taco(7, "Veggie Mix", 2.00, "true", "false");
+
+        dbManager.insertTaco(tacoOne);
+        dbManager.insertTaco(tacoTwo);
+        dbManager.insertTaco(tacoThree);
+        dbManager.insertTaco(tacoFour);
+        dbManager.insertTaco(tacoFive);
+        dbManager.insertTaco(tacoSix);
+        dbManager.insertTaco(tacoSeven);
+
+        //DRINKS
+        Drink drinkOne = new Drink(1, "Water", 2.00, "true", "true");
+        Drink drinkTwo = new Drink(2, "Coke-a-Cola", 2.00, "true", "true");
+        Drink drinkThree = new Drink(3, "Sprite", 2.00, "true", "true");
+        Drink drinkFour = new Drink(4, "Dr.Pepper", 2.00, "true", "true");
+        Drink drinkFive = new Drink(5, "Lemonade", 2.00, "true", "true");
+        Drink drinkSix = new Drink(6, "Milk", 2.00, "true", "true");
+
+        dbManager.insertDrink(drinkOne);
+        dbManager.insertDrink(drinkTwo);
+        dbManager.insertDrink(drinkThree);
+        dbManager.insertDrink(drinkFour);
+        dbManager.insertDrink(drinkFive);
+        dbManager.insertDrink(drinkSix);
 
     }
 
