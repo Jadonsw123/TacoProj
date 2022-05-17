@@ -41,6 +41,7 @@ import static com.example.tacoproj.MainActivity.menuButton;
 public class CustomItem extends AppCompatActivity {
 
     Button continueOrder;
+    ArrayList<String> order;
 
     DatabaseManager dbManager = new DatabaseManager(this);
 
@@ -50,9 +51,10 @@ public class CustomItem extends AppCompatActivity {
     RadioGroup rgSides;
     RadioGroup rgBTacos;
     RadioGroup rgDTacos;
+    RadioGroup toppings;
 
     String menu;
-    Bundle b;
+
 
 //https://www.geeksforgeeks.org/android-how-to-add-radio-buttons-in-an-android-application/
     //'menu' input can be: "drinks", "sides", "btaco", "dtaco"
@@ -75,32 +77,70 @@ public class CustomItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Bundle b=this.getIntent().getExtras();
         menu =b.getString("menu");
+        order = b.getStringArrayList("order");
         /*b=MainActivity.menuIntent.getExtras();
         menu =b.getString("menu");*/
 
 
         switch (menu) {
             case "drinks":
-                radioGroup = rgDrinks;
-                continueOrder = findViewById(R.id.completeDrinkSelection);
                 setContentView(R.layout.activity_drinks_menu);
+                radioGroup = findViewById(R.id.drinks);
+                for (Drink x : dbManager.selectAllDrinks())
+                {
+                    Log.w("deez",x.toString());
+                    RadioButton button = new RadioButton(this);
+                    button.setHint("Drink");
+                    button.setText(x.getName());
+                    button.setTextSize(25);
+                    button.setPadding(10,10,10,10);
+                    radioGroup.addView(button);
+                }
+                continueOrder = findViewById(R.id.completeDrinkSelection);
                 break;
             case "sides":
-                radioGroup = rgSides;
-                continueOrder = findViewById(R.id.completeSideSelection);
                 setContentView(R.layout.activity_sides_menu);
-                break;
-            case "btaco":
-                radioGroup = rgBTacos;
-                continueOrder = findViewById(R.id.completeBTacoSelection);
-                setContentView(R.layout.activity_breakfast_menu);
+                radioGroup = findViewById(R.id.sides);
+                for (Side x : dbManager.selectAllSides())
+                {
+                    Log.w("deez",x.toString());
+                    RadioButton button = new RadioButton(this);
+                    button.setHint("Side");
+                    button.setTextSize(25);
+                    button.setPadding(10,10,10,10);
+                    button.setText(x.getName());
+                    radioGroup.addView(button);
+                }
+                continueOrder = findViewById(R.id.completeSideSelection);
                 break;
             case "dtaco":
-                radioGroup = rgDTacos;
-                continueOrder = findViewById(R.id.completeDTacoSelection);
                 setContentView(R.layout.activity_daytime_taco_menu);
+                radioGroup = findViewById(R.id.tacoList);
+                for (Taco x : dbManager.selectAllTacos())
+                {
+                    Log.w("deez",x.toString());
+                    RadioButton button = new RadioButton(this);
+                    button.setHint("Taco");
+                    button.setTextSize(25);
+                    button.setPadding(10,10,10,10);
+                    button.setText(x.getName());
+                    radioGroup.addView(button);
+                }
+                toppings = findViewById(R.id.toppings);
+                for (Topping x : dbManager.selectAllToppings())
+                {
+                    RadioButton button = new RadioButton(this);
+                    button.setHint("Topping");
+                    button.setTextSize(25);
+                    button.setPadding(10,10,10,10);
+                    button.setText(x.getName());
+                    toppings.addView(button);
+                }
+
+                continueOrder = findViewById(R.id.completeDTacoSelection);
                 break;
         }
+
 
         //buttonClick(menuButton);
 
@@ -114,6 +154,7 @@ public class CustomItem extends AppCompatActivity {
                 RadioButton radioButton = group.findViewById(checkedId);
             }
         });
+        */
         continueOrder.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -121,15 +162,20 @@ public class CustomItem extends AppCompatActivity {
             {
                 int selectedId = radioGroup.getCheckedRadioButtonId();
                 if (selectedId == -1){
-                    Toast.makeText(CustomItem.this*//*activity*//*,"No item has been selected", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(CustomItem.this,this.activity,"No item has been selected", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     RadioButton radioButton = radioGroup.findViewById(selectedId);
                     //ADD TO ORDER
                     addToOrder(radioButton);
+                    if(radioButton.getHint().equals("Taco")){
+                        RadioButton topping = toppings.findViewById(toppings.getCheckedRadioButtonId());
+                        addToOrder(topping);
+                    }
+                    onBackPressed();
                 }
             }
-        });*/
+        });
 
 
     }
@@ -156,6 +202,7 @@ public class CustomItem extends AppCompatActivity {
                     RadioButton radioButton = radioGroup.findViewById(selectedId);
                     //ADD TO ORDER
                     addToOrder(radioButton);
+
                 }
             }
         });
@@ -169,32 +216,49 @@ public class CustomItem extends AppCompatActivity {
     }*/
 
 
-    public void addListenerOnButton(RadioGroup radioGroup){
+//    public void addListenerOnButton(RadioGroup radioGroup){
+//
+//        //int radioGroupId = radioGroup.getId();
+//        ScrollView menuOptions = (ScrollView) findViewById(R.id.selection);
+//        menuOptions.addView(radioGroup);
+//        continueOrder = (Button) findViewById(R.id.completeSelection);
+//
+//
+//        continueOrder.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                setContentView(R.layout.activity_main);
+//
+//            }
+//        });
+//
+//    }
 
-        //int radioGroupId = radioGroup.getId();
-        ScrollView menuOptions = (ScrollView) findViewById(R.id.selection);
-        menuOptions.addView(radioGroup);
-        continueOrder = (Button) findViewById(R.id.completeSelection);
 
 
-        continueOrder.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                setContentView(R.layout.activity_main);
-
-            }
-        });
-
-    }
-
-
-    public List<String> order;
     public void addToOrder(RadioButton selection){
+        selection.getHint();
+
         String addItem = (String) selection.getText();
-        order.add(addItem);
+        String type = (String)(selection.getHint());
+        order.add(type + (" " + addItem));
     }
+    public void goBack(View v) {
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("newOrder", order);
+        setResult(Activity.RESULT_OK, resultIntent);
+        this.finish();
+    }
+    @Override
+    public void onBackPressed() {
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("newOrder", order);
+        setResult(Activity.RESULT_OK, resultIntent);
+        this.finish();
+    }
+
     
     public void onMenuButtonClick(Button button){
         Intent menuView;

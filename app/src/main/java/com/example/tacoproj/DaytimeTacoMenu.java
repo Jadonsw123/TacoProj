@@ -29,7 +29,9 @@ public class DaytimeTacoMenu extends CustomItem {
         {
             Log.w("deez",x.toString());
             RadioButton button = new RadioButton(this);
+            button.setHint("Taco");
             button.setText(x.getName());
+            meatRadioGroup.addView(button);
         }
 
 

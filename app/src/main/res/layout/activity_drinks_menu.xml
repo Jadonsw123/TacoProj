@@ -44,48 +44,7 @@
                     android:padding="10dp"
 
                     />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/water"
-                    android:text="@string/water_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
 
-                    />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/coke"
-                    android:text="@string/coke_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/sprite"
-                    android:text="@string/sprite_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/drpepper"
-                    android:text="@string/drpepper_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lemonade"
-                    android:text="@string/lemonade_op"
-                    android:textSize = "30sp"
-                    android:padding="10dp"
-                    />
 
             </RadioGroup>
 

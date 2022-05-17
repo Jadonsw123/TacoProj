@@ -77,6 +77,7 @@ public class CartActivity extends AppCompatActivity {
             String itemName = fullItem[1];
             Double itemPrice;
             Integer itemId;
+
             switch (type){
                 case "Taco":
                     itemPrice = dbManager.selectTacoByName(itemName).getPrice();
@@ -204,6 +205,7 @@ public class CartActivity extends AppCompatActivity {
                 builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
+                        order = new ArrayList<String>();
                         onBackPressed();
                     }
                 });

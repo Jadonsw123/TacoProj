@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class DatabaseManager extends SQLiteOpenHelper {
     private static final String DATABASE_NAME =
             "candyDB";
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 13;
     private static final String TABLE_TACO = "taco";
     private static final String TABLE_TOPPING = "topping";
     private static final String TABLE_SIDE = "side";
@@ -190,7 +190,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public void insertSide(Side side) {
         SQLiteDatabase db = this.getWritableDatabase();
         String sqlInsert = "insert into " +
-                TABLE_DRINK;
+                TABLE_SIDE;
         sqlInsert += " values( null, '" + side.getName();
         sqlInsert += "', '" + side.getPrice() + "' ,'" + side.getAvailability() + "','" + side.getBreakfast() + "')";
         db.execSQL(sqlInsert);

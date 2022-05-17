@@ -27,11 +27,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         order = new ArrayList<String>();
-        order.add("Taco egg");
-        order.add("Topping cheese");
-        order.add("Topping peppers");
+        //order.add("Taco egg");
+        //order.add("Topping cheese");
+        //order.add("Topping peppers");
 
         dbManager = new DatabaseManager(this);
+        /*
         dbManager.deleteTacoByName("egg");
         Taco testTaco = dbManager.selectTacoByName("egg");
         if(testTaco == null){
@@ -58,13 +59,15 @@ public class MainActivity extends AppCompatActivity {
         } else{
             Log.w("test", "No TACO");
         }
+        */
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+/*
         //SIDES
         Side sideOne = new Side(1,"Potatoes",0.80,"true", "true");
         Side sideTwo = new Side(2,"Pickles",0.80,"true", "true");
-        Side sideThree = new Side(3,"Mix Fruit Cup",0.80,"true", "true");
+        Side sideThree = new Side(3,"Mix_Fruit_Cup",0.80,"true", "true");
 
         dbManager.insertSide(sideOne);
         dbManager.insertSide(sideTwo);
@@ -72,14 +75,14 @@ public class MainActivity extends AppCompatActivity {
 
         //TOPPINGS
         Topping toppingOne = new Topping(1, "Cheese", 0.25, "true", "true");
-        Topping toppingTwo = new Topping(2, "Sour Cream", 0.25, "true", "true");
+        Topping toppingTwo = new Topping(2, "Sour_Cream", 0.25, "true", "true");
         Topping toppingThree = new Topping(3, "Avocado", 0.25, "true", "true");
-        Topping toppingFour = new Topping(4, "Refried Beans", 0.25, "true", "true");
+        Topping toppingFour = new Topping(4, "Beans", 0.25, "true", "true");
         Topping toppingFive = new Topping(5, "Lettuce", 0.25, "true", "false");
         Topping toppingSix = new Topping(6, "Tomato", 0.25, "true", "false");
         Topping toppingSeven = new Topping(7, "Salsa", 0.25, "true", "false");
-        Topping toppingEight = new Topping(8, "Pico De Gallo", 0.25, "true", "false");
-        Topping toppingNine = new Topping(9, "Cooked Veggies", 0.25, "true", "false");
+        Topping toppingEight = new Topping(8, "Pico_De_Gallo", 0.25, "true", "false");
+        Topping toppingNine = new Topping(9, "Cooked_Veggies", 0.25, "true", "false");
 
         dbManager.insertTopping(toppingOne);
         dbManager.insertTopping(toppingTwo);
@@ -92,13 +95,13 @@ public class MainActivity extends AppCompatActivity {
         dbManager.insertTopping(toppingNine);
 
         //TACOS
-        Taco tacoOne = new Taco(1, "Scrambled Eggs", 2.00, "true", "true");
+        Taco tacoOne = new Taco(1, "Scrambled_Eggs", 2.00, "true", "true");
         Taco tacoTwo = new Taco(2, "Bean", 2.00, "true", "true");
         Taco tacoThree = new Taco(3, "Bacon", 2.00, "true", "true");
         Taco tacoFour = new Taco(4, "Sausage", 2.00, "true", "true");
         Taco tacoFive = new Taco(5, "Beef", 2.00, "true", "false");
         Taco tacoSix = new Taco(6, "Chicken", 2.00, "true", "false");
-        Taco tacoSeven = new Taco(7, "Veggie Mix", 2.00, "true", "false");
+        Taco tacoSeven = new Taco(7, "Veggie_Mix", 2.00, "true", "false");
 
         dbManager.insertTaco(tacoOne);
         dbManager.insertTaco(tacoTwo);
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         dbManager.insertDrink(drinkFour);
         dbManager.insertDrink(drinkFive);
         dbManager.insertDrink(drinkSix);
-
+*/
     }
 
 
@@ -194,19 +197,24 @@ public class MainActivity extends AppCompatActivity {
         Log.w("Deez", "addDrink");
         Intent newIntent = new Intent(this, CustomItem.class);
         newIntent.putExtra("menu","drinks");
-        this.startActivity( newIntent );
+        newIntent.putExtra("order",order);
+//        this.startActivity( newIntent );
+
+        startActivityForResult(newIntent,1);
     }
     public void ClickAddTaco(View view) {
         Log.w("Deez", "addDrink");
         Intent newIntent = new Intent(this, CustomItem.class);
-        newIntent.putExtra("menu","btaco");
-        this.startActivity( newIntent );
+        newIntent.putExtra("order",order);
+        newIntent.putExtra("menu","dtaco");
+        this.startActivityForResult( newIntent,1);
     }
     public void ClickAddSide(View view) {
         Log.w("Deez", "addDrink");
         Intent newIntent = new Intent(this, CustomItem.class);
+        newIntent.putExtra("order",order);
         newIntent.putExtra("menu","sides");
-        this.startActivity( newIntent );
+        this.startActivityForResult( newIntent,1 );
     }
 
     public void ClickDevMenu(View view) {
@@ -225,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     ArrayList<String> newOrder = data.getStringArrayListExtra("newOrder");
                     order = newOrder;
+                    Log.w("test",order.toString());
                     // TODO Update your TextView.
                 }
                 break;
