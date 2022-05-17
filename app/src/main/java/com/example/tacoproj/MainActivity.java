@@ -109,12 +109,12 @@ public class MainActivity extends AppCompatActivity {
         dbManager.insertTaco(tacoSeven);
 
         //DRINKS
-        Drink drinkOne = new Drink(1, "Water", 2.00, "true", "true");
-        Drink drinkTwo = new Drink(2, "Coke-a-Cola", 2.00, "true", "true");
-        Drink drinkThree = new Drink(3, "Sprite", 2.00, "true", "true");
-        Drink drinkFour = new Drink(4, "Dr.Pepper", 2.00, "true", "true");
-        Drink drinkFive = new Drink(5, "Lemonade", 2.00, "true", "true");
-        Drink drinkSix = new Drink(6, "Milk", 2.00, "true", "true");
+        Drink drinkOne = new Drink(1, "Water", 0.00, "true", "true");
+        Drink drinkTwo = new Drink(2, "Coke-a-Cola", 1.00, "true", "true");
+        Drink drinkThree = new Drink(3, "Sprite", 1.00, "true", "true");
+        Drink drinkFour = new Drink(4, "Dr.Pepper", 1.00, "true", "true");
+        Drink drinkFive = new Drink(5, "Lemonade", 1.00, "true", "true");
+        Drink drinkSix = new Drink(6, "Milk", 1.00, "true", "true");
 
         dbManager.insertDrink(drinkOne);
         dbManager.insertDrink(drinkTwo);
