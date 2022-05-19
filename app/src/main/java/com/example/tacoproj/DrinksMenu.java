@@ -7,18 +7,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-public class DrinksMenu extends CustomItem {
-    CustomItem drinks;
 
-    @Override
+public class DrinksMenu extends CustomItem {
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks_menu);
-    }
+        radioGroup = rgDrinks;
+        continueOrder = findViewById(R.id.completeDrinkSelection);
+        radioButtonHandler(radioGroup, continueOrder);
 
-    public DrinksMenu(){
-
     }
+    /*radioGroup = rgDrinks;
+    radioButtonHandler();*/
 
 
 }

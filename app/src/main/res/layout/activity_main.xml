@@ -31,7 +31,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddSideButton" />
+        app:layout_constraintTop_toBottomOf="@+id/AddSideButton"
+        android:onClick="ClickAddDrink"/>
 
     <Button
         android:id="@+id/ProceedToCart"
@@ -57,7 +58,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddTacoButton" />
+        app:layout_constraintTop_toBottomOf="@+id/AddTacoButton"
+        android:onClick="ClickAddSide"/>
 
     <Button
         android:id="@+id/AddTacoButton"
@@ -69,7 +71,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuText" />
+        app:layout_constraintTop_toBottomOf="@+id/menuText"
+        android:onClick="ClickAddTaco"/>
 
     <Button
         android:id="@+id/button"
