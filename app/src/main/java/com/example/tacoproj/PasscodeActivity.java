@@ -22,9 +22,9 @@ public class PasscodeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passcode);
 
-        Bundle b=this.getIntent().getExtras();
-        ArrayList<String> order =b.getStringArrayList("order");
-        Log.w("test",order.get(0));
+        //Bundle b=this.getIntent().getExtras();
+        //ArrayList<String> order =b.getStringArrayList("order");
+        //Log.w("test",order.get(0));
 
         dbManager = new DatabaseManager(this);
 

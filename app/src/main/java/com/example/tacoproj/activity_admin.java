@@ -34,4 +34,10 @@ public class activity_admin extends AppCompatActivity {
         finish();
     }
 
+    public void clickOrders(View view)
+    {
+        startActivity(new Intent(activity_admin.this,AdminOrders.class));
+        finish();
+    }
+
 }

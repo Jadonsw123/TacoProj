@@ -9,9 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".addActivity"></activity>
-        <activity android:name=".UpdateActivity"
-            android:screenOrientation="landscape"/>
+        <activity android:name=".DeleteActivity" android:screenOrientation="landscape" ></activity>
+        <activity
+            android:name=".addActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".UpdateActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".CustomItem"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".AdminOrders"
+            android:screenOrientation="landscape" />
+
         <activity
             android:name=".CartActivity"
             android:screenOrientation="landscape" />

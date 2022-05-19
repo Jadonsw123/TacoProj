@@ -73,6 +73,11 @@ public class CartActivity extends AppCompatActivity {
 
         for (int i = 0; i < order.size(); i++) {
             String[] fullItem = order.get(i).split(" ");
+            if(fullItem.length < 2){
+                fullItem = new String[2];
+                fullItem[0] = "Taco";
+                fullItem[1] = "egg";
+            }
             String type = fullItem[0];
             String itemName = fullItem[1];
             Double itemPrice;

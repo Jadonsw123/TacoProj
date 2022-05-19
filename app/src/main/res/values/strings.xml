@@ -39,14 +39,11 @@
     <string name="sprite_op">Sprite</string>
     <string name="drpepper_op">Dr.Pepper</string>
     <string name="lemonade_op">Lemonade</string>
-    <string name="milk_op">Milk</string>
 
     <!--sides-->
     <string name="potatoes_op">Potatoes</string>
     <string name="pickles_op">Pickles</string>
     <string name="fruit_op">Mix Fruit Cup</string>
-
-
 
 </resources>
 

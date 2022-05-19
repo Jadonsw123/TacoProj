@@ -191,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
         cartIntent.putExtra("order",order);
         startActivityForResult(cartIntent,1);
 
-        startActivity(new Intent(this,UpdateActivity.class));
     }
 
 
@@ -222,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
     public void ClickDevMenu(View view) {
         Log.w("Deez", "SECRET BUTTON!");
         Intent adminIntent = new Intent(this, PasscodeActivity.class);
-        order.add("test12345");
+
         adminIntent.putExtra("order",order);
         this.startActivity(adminIntent);
     }
